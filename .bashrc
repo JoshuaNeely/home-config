@@ -120,14 +120,14 @@ fi
 export GHS_LMHOST=@corp-licmgr.adtran.com
 export GHS_LMWHICH=@ghs
 
-export NVM_DIR="/home/developer/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="/home/developer/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # automatically load up the correct node version
-nvm use 5.12.0
+#nvm use 5.12.0
 
 export PATH=$HOME/bin:$PATH
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/developer/.sdkman"
-[[ -s "/home/developer/.sdkman/bin/sdkman-init.sh" ]] && source "/home/developer/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/home/developer/.sdkman"
+#[[ -s "/home/developer/.sdkman/bin/sdkman-init.sh" ]] && source "/home/developer/.sdkman/bin/sdkman-init.sh"
