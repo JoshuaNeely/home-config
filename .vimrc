@@ -1,3 +1,20 @@
+" plugins via Vundle!
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" plugins here
+Plugin 'VundleVim/Vundle.vim'
+" end of plugins here
+call vundle#end()
+filetype plugin indent on
+" :PluginList
+" :PluginInstall
+" :PluginSearch
+" :PluginClean
+
+
 " numbered rows 
 set number
 
