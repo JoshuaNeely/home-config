@@ -6,6 +6,7 @@ call vundle#begin()
 
 " plugins here
 Plugin 'VundleVim/Vundle.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 " end of plugins here
 call vundle#end()
 filetype plugin indent on
