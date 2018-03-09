@@ -20,3 +20,5 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias pip="pip3"
 alias python="python3"
+
+alias seetabs="cat -etv"
