@@ -36,3 +36,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" tmux wrecking tab settings per filetime...?
+autocmd FileType python,c,cpp setlocal shiftwidth=2 softtabstop=4 expandtab
