@@ -18,7 +18,7 @@ fi
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias pip="pip3"
-alias python="python3"
+#alias pip="pip3"
+#alias python="python3"
 
 alias seetabs="cat -etv"
