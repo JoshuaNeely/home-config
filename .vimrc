@@ -7,6 +7,8 @@ call vundle#begin()
 " plugins here
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'airblade/vim-gitgutter'
+
 " end of plugins here
 call vundle#end()
 filetype plugin indent on
@@ -39,3 +41,6 @@ nnoremap <C-H> <C-W><C-H>
 
 " tmux wrecking tab settings per filetime...?
 autocmd FileType python,c,cpp setlocal shiftwidth=2 softtabstop=4 expandtab
+
+" refresh faster; good for gitgutter plugin
+set updatetime=250
