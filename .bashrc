@@ -96,3 +96,6 @@ export NVM_DIR="/home/josh/.nvm"
 nvm use 5.12.0
 
 export PATH=$HOME/bin:$PATH
+
+# set shell option to verify history commands
+shopt -s histverify
