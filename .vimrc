@@ -8,6 +8,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'airblade/vim-gitgutter'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'leafgarland/typescript-vim'
 
 " end of plugins here
 call vundle#end()
