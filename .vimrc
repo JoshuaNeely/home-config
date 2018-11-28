@@ -47,6 +47,9 @@ autocmd FileType python,c,cpp setlocal shiftwidth=2 softtabstop=4 expandtab
 " refresh faster; good for gitgutter plugin
 set updatetime=250
 
+" move up file hierarchy until find a tag file (for ctags)
+set tags=tags;/
+
 " persist history across file sessions
 set undofile
 set undodir=~/.vim/undo//
