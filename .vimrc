@@ -50,6 +50,11 @@ set updatetime=250
 " move up file hierarchy until find a tag file (for ctags)
 set tags=tags;/
 
+" allow viewing whitespace, tabs, etc with F5
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:*,nbsp:␣
+noremap <F5> :set list!<CR>
+noremap <F7> :setr paste!<CR>
+
 " persist history across file sessions
 set undofile
 set undodir=~/.vim/undo//
