@@ -22,3 +22,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 #alias python="python3"
 
 alias seetabs="cat -etv"
+
+alias activate="source venv/bin/activate"
+
+alias gs="git status"
