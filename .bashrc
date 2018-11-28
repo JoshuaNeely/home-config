@@ -92,10 +92,8 @@ export GHS_LMWHICH=@ghs
 export NVM_DIR="/home/josh/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# automatically load up the correct node version
-nvm use 5.12.0
-
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/local/bin:$PATH
 
 # set shell option to verify history commands
 shopt -s histverify
