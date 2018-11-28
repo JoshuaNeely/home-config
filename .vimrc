@@ -44,3 +44,9 @@ autocmd FileType python,c,cpp setlocal shiftwidth=2 softtabstop=4 expandtab
 
 " refresh faster; good for gitgutter plugin
 set updatetime=250
+
+" persist history across file sessions
+set undofile
+set undodir=~/.vim/undo//
+set backupdir=~/.vim/backups//
+set directory=~/.vim/swaps//
