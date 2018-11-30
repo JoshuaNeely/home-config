@@ -41,7 +41,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" tmux wrecking tab settings per filetime...?
+" tmux wrecking tab settings per filetype...?
 autocmd FileType python,c,cpp setlocal shiftwidth=2 softtabstop=4 expandtab
 
 " refresh faster; good for gitgutter plugin
