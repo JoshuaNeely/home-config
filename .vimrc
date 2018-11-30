@@ -1,3 +1,5 @@
+" ~~~~~ PLUGIN STUFF ~~~~~
+
 " plugins via Vundle!
 set nocompatible
 filetype off
@@ -19,6 +21,11 @@ filetype plugin indent on
 " :PluginSearch
 " :PluginClean
 
+" refresh faster; good for gitgutter plugin
+set updatetime=250
+
+
+" ~~~~~ UI ~~~~~
 
 " numbered rows 
 set number
@@ -35,6 +42,9 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
 " newlines start at last indent
 set autoindent
 
+
+" ~~~~~ TMUX + VIM PANES ~~~~~
+
 " faster pane switching
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -44,8 +54,8 @@ nnoremap <C-H> <C-W><C-H>
 " tmux wrecking tab settings per filetype...?
 autocmd FileType python,c,cpp setlocal shiftwidth=2 softtabstop=4 expandtab
 
-" refresh faster; good for gitgutter plugin
-set updatetime=250
+
+" ~~~~~ MISCELLANIA ~~~~~
 
 " move up file hierarchy until find a tag file (for ctags)
 set tags=tags;/
