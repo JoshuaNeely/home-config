@@ -60,3 +60,10 @@ set undofile
 set undodir=~/.vim/undo//
 set backupdir=~/.vim/backups//
 set directory=~/.vim/swaps//
+
+" Disable Background Color Erase (BCE) so that color schemes
+" work properly when Vim is used inside tmux and GNU screen.
+" Fix scrolling through long files sometimes breaking colorscheme
+if &term =~ '256color'
+  set t_ut=
+endif
