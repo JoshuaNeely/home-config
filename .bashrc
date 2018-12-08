@@ -89,9 +89,6 @@ fi
 export GHS_LMHOST=@corp-licmgr.adtran.com
 export GHS_LMWHICH=@ghs
 
-export NVM_DIR="/home/josh/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
 
