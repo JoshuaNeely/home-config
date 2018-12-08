@@ -94,3 +94,9 @@ export PATH=$HOME/local/bin:$PATH
 
 # set shell option to verify history commands
 shopt -s histverify
+
+# ~~~~~~ Support Persistant History / Backups / Swaps ~~~~~~~
+# ~~~~~~ Supports relevant section of .vimrc ~~~~~~~~~~~~~~~
+mkdir -p ~/.vim/swaps
+mkdir -p ~/.vim/backups
+mkdir -p ~/.vim/undo
