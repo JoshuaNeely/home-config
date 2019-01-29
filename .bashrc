@@ -100,3 +100,6 @@ shopt -s histverify
 mkdir -p ~/.vim/swaps
 mkdir -p ~/.vim/backups
 mkdir -p ~/.vim/undo
+
+# ~~~~~~ vim style movement in bash
+set -o vi
