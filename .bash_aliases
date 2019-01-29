@@ -26,3 +26,7 @@ alias gs="git status"
 # "activate"  or  "activate [python version here]"
 __activate () { source venv$1/bin/activate; }
 alias activate=__activate
+
+
+# Simple HTTP Server to host current directory contents
+alias webhost="python -m SimpleHTTPServer 8080"
