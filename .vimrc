@@ -12,6 +12,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'airblade/vim-gitgutter'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'prettier/vim-prettier'
 
 " end of plugins here
 call vundle#end()
