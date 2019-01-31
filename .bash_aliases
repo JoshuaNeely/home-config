@@ -27,9 +27,5 @@ alias gs="git status"
 __activate () { source venv$1/bin/activate; }
 alias activate=__activate
 
-
-# Simple HTTP Server to host current directory contents
-alias webhost="python -m SimpleHTTPServer 8080"
-
 # allows ctl-c in sl. solving the real problems here
 alias sl="sl -e"
