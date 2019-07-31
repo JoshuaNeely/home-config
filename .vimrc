@@ -78,3 +78,7 @@ set directory=~/.vim/swaps//
 if &term =~ '256color'
   set t_ut=
 endif
+
+" get rid of alarmbells
+" needed for linux subsystem on windows
+set visualbell
