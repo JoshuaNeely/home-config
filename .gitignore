@@ -7,7 +7,6 @@
 !.bash_aliases
 !.vimrc
 !.tmux.conf
-!.gitconfig
 
 # for THIS repo, so it can clone right into ~/
 !.gitignore
