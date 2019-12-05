@@ -66,6 +66,7 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:*,nbsp:␣
 noremap <F5> :set list!<CR>
 noremap <F7> :setr paste!<CR>
 noremap <S-Y> :'<,'> w! /tmp/vimcopy<CR>
+noremap <S-D> :'<,'> w! /tmp/vimcopy <bar> :'<,'> d<CR>
 noremap <S-P> :r /tmp/vimcopy<CR>
 
 
