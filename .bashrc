@@ -109,3 +109,7 @@ mkdir -p ~/.vim/undo
 
 # ~~~~~~ vim style movement in bash
 set -o vi
+
+# ~~~~~~ ruby and gem stuff
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
