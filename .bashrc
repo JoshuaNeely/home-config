@@ -110,6 +110,14 @@ mkdir -p ~/.vim/undo
 # ~~~~~~ vim style movement in bash
 set -o vi
 
+
+# ~~~~~~ node version manager. for work
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && nvm use 10.16.3
+
+
 # ~~~~~~ ruby and gem stuff
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
