@@ -111,6 +111,9 @@ mkdir -p ~/.vim/undo
 set -o vi
 
 
+# ~~~~~~ Dunno what I needed this for... git integration?
+export EDITOR=/usr/bin/vim
+
 # ~~~~~~ node version manager. for work
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
