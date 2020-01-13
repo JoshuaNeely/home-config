@@ -64,10 +64,14 @@ set tags=tags;/
 " allow viewing whitespace, tabs, etc with F5
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:*,nbsp:␣
 noremap <F5> :set list!<CR>
-noremap <F7> :setr paste!<CR>
+
+" copy/cut/paste to file. useful when global buffer not available over ssh
 noremap <S-Y> :'<,'> w! /tmp/vimcopy<CR>
 noremap <S-D> :'<,'> w! /tmp/vimcopy <bar> :'<,'> d<CR>
 noremap <S-P> :r /tmp/vimcopy<CR>
+
+" alternative method of copy to global buffer... make sure $DISPLAY is set
+noremap <S-U> :'<,'> w !copy_to_clipboard<CR><CR>
 
 
 " persist history across file sessions
