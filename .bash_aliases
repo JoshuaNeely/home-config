@@ -31,3 +31,6 @@ alias activate=__activate
 
 # allows ctl-c in sl. solving the real problems here
 alias sl="sl -e"
+
+# enabled colors in grep pipes
+alias grep="grep --color=always"
