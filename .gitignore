@@ -4,6 +4,7 @@
 # exceptions
 !one_time_setup.sh
 !.bashrc
+!.profile
 !.bash_aliases
 !.vimrc
 !.tmux.conf
