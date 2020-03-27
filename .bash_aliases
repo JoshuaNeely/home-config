@@ -22,7 +22,23 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias seetabs="cat -etv"
 
+# git stuff
+# allows mixing-in other kinds of commands, like sed filtering, etc
 alias gs="git status"
+
+# I wanted a way to clear stale remote branches
+# It turns out `git fetch --prune` should do this too
+# ...but this is a cool thing for the mental-toolbox so I'm keeping it as a template
+# side note: to get the bash auto-completion I put a blank entry in [alias] in .gitconfig
+git()
+{
+  if [ $# -gt 0 ] && [ "$1" == "clear-remotes" ] ; then
+    shift
+    command git branch -a | grep remotes | grep -v HEAD | sed 's.remotes/..g' | xargs -i git branch -rd {}
+  else
+    command git "$@"
+  fi
+}
 
 # Replaces the "source venv/bin/activate" python virtualenv workflow
 # "activate"  or  "activate [python version here]"
