@@ -10,3 +10,6 @@ git clone git://github.com/airblade/vim-gitgutter.git
 
 # tell vim to use plugins
 vim +PluginInstall +qall
+
+dconf reset -f /org/gnome/terminal/
+dconf load /org/gnome/terminal/ < ./.gnome-terminal-settings.txt
