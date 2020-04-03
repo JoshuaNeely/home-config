@@ -95,8 +95,8 @@ recall() {
       recall_function $1
     fi
   else
-    echo "recall where?"
-    read LOCATION_NAME
+    # rudimentary tab completion!
+    LOCATION_NAME=$(rlwrap -f <(ls /tmp/marks) bash -c 'read -p "recall where? " && echo $REPLY')
     recall_function $LOCATION_NAME
   fi
 }

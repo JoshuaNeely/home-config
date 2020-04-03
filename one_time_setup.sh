@@ -13,3 +13,6 @@ vim +PluginInstall +qall
 
 dconf reset -f /org/gnome/terminal/
 dconf load /org/gnome/terminal/ < ./.gnome-terminal-settings.txt
+
+# allows rudimentary tab completion for bash functions!
+sudo apt install rlwrap
