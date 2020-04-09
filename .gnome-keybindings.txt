@@ -1,0 +1,4 @@
+[/]
+close=['<Alt>c']
+maximize=['<Alt>m']
+minimize=['<Alt>x']

@@ -11,8 +11,13 @@ git clone git://github.com/airblade/vim-gitgutter.git
 # tell vim to use plugins
 vim +PluginInstall +qall
 
+# restore versioned terminal settings
 dconf reset -f /org/gnome/terminal/
 dconf load /org/gnome/terminal/ < ./.gnome-terminal-settings.txt
+
+# restore versioned keybindings settings
+dconf reset -f /org/gnome/settings-daemon/plugins/media-keys/
+dconf load /org/gnome/settings-daemon/plugins/media-keys/ < ./.gnome-keybindings.txt
 
 # allows rudimentary tab completion for bash functions!
 sudo apt install rlwrap

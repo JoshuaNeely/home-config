@@ -10,6 +10,7 @@
 !.tmux.conf
 !.gitconfig
 !.gnome-terminal-settings.txt
+!.gnome-keybindings.txt
 
 # for THIS repo, so it can clone right into ~/
 !.gitignore
