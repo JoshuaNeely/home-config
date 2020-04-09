@@ -2,8 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export DISPLAY=:0.0
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
