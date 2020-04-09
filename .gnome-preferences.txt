@@ -33,6 +33,7 @@ sources=[('xkb', 'us')]
 xkb-options=@as []
 
 [desktop/interface]
+clock-format='12h'
 clock-show-seconds=false
 clock-show-weekday=true
 enable-hot-corners=false
@@ -100,6 +101,10 @@ hinting='slight'
 [shell]
 disable-user-extensions=true
 favorite-apps=['firefox.desktop', 'teams.desktop']
+
+[shell/extensions/desktop-icons]
+show-trash=false
+show-home=false
 
 [shell/extensions/dash-to-dock]
 dock-fixed=true
