@@ -1,0 +1,121 @@
+[control-center]
+last-panel='background'
+
+[desktop/app-folders]
+folder-children=['Utilities', 'Sundry', 'YaST']
+
+[desktop/app-folders/folders/Sundry]
+apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop', 'fedora-release-notes.desktop', 'firewall-config.desktop', 'flash-player-properties.desktop', 'gconf-editor.desktop', 'gnome-abrt.desktop', 'gnome-power-statistics.desktop', 'ibus-setup-anthy.desktop', 'ibus-setup.desktop', 'ibus-setup-hangul.desktop', 'ibus-setup-libbopomofo.desktop', 'ibus-setup-libpinyin.desktop', 'ibus-setup-m17n.desktop', 'ibus-setup-typing-booster.desktop', 'im-chooser.desktop', 'itweb-settings.desktop', 'jhbuild.desktop', 'javaws.desktop', 'java-1.7.0-openjdk-jconsole.desktop', 'java-1.7.0-openjdk-policytool.desktop', 'log4j-chainsaw.desktop', 'log4j-logfactor5.desktop', 'nm-connection-editor.desktop', 'orca.desktop', 'setroubleshoot.desktop', 'system-config-date.desktop', 'system-config-firewall.desktop', 'system-config-keyboard.desktop', 'system-config-language.desktop', 'system-config-printer.desktop', 'system-config-users.desktop', 'vino-preferences.desktop']
+categories=['X-GNOME-Sundry']
+name='X-GNOME-Sundry.directory'
+translate=true
+
+[desktop/app-folders/folders/Utilities]
+apps=['org.gnome.baobab.desktop', 'deja-dup-preferences.desktop', 'eog.desktop', 'evince.desktop', 'org.gnome.FileRoller.desktop', 'gnome-calculator.desktop', 'gnome-dictionary.desktop', 'org.gnome.Characters.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Screenshot.desktop', 'gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'gnome-tweak-tool.desktop', 'gucharmap.desktop', 'seahorse.desktop', 'vinagre.desktop', 'yelp.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/warty-final-ubuntu.png'
+primary-color='#2c001e'
+secondary-color='#2c001e'
+
+[desktop/input-sources]
+sources=[('xkb', 'us')]
+xkb-options=@as []
+
+[desktop/interface]
+clock-show-seconds=false
+clock-show-weekday=true
+enable-hot-corners=false
+gtk-enable-primary-paste=false
+gtk-im-module='gtk-im-context-simple'
+show-battery-percentage=false
+
+[desktop/notifications]
+application-children=['org-gnome-software', 'discord', 'apport-gtk', 'teams']
+
+[desktop/notifications/application/apport-gtk]
+application-id='apport-gtk.desktop'
+
+[desktop/notifications/application/discord]
+application-id='discord.desktop'
+
+[desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[desktop/notifications/application/teams]
+application-id='teams.desktop'
+show-banners=false
+
+[desktop/peripherals/mouse]
+speed=-0.30882352941176472
+
+[desktop/peripherals/touchpad]
+two-finger-scrolling-enabled=true
+
+[desktop/privacy]
+disable-microphone=false
+report-technical-problems=true
+
+[desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[desktop/sound]
+allow-volume-above-100-percent=false
+
+[desktop/wm/keybindings]
+close=['<Alt>c']
+maximize=['<Alt>m']
+minimize=['<Alt>x']
+
+[evolution-data-server]
+migrated=true
+network-monitor-gio-name=''
+
+[nautilus/preferences]
+default-folder-viewer='icon-view'
+search-filter-time-type='last_modified'
+
+[nautilus/window-state]
+initial-size=(890, 550)
+maximized=false
+
+[settings-daemon/plugins/media-keys]
+close=['<Alt>c']
+maximize=['<Alt>m']
+minimize=['<Alt>x']
+
+[settings-daemon/plugins/xsettings]
+hinting='slight'
+
+[shell]
+disable-user-extensions=true
+favorite-apps=['firefox.desktop', 'teams.desktop']
+
+[shell/extensions/dash-to-dock]
+dock-fixed=true
+dock-position='LEFT'
+
+[software]
+check-timestamp=int64 1586448293
+
+[system/location]
+enabled=false
+
+[terminal/legacy]
+schema-version=uint32 3
+
+[terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+background-color='rgb(0,8,9)'
+foreground-color='rgb(131,148,150)'
+use-theme-colors=true
