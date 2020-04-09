@@ -1,13 +1,18 @@
 [user]
-email = joshua.a.neely@gmail.com
-name = Joshua Neely
-
-[includeIf "gitdir:~/adtran/"]
-    path = ~/adtran/.gitconfig
+  email = joshua.a.neely@gmail.com
+  name = JoshuaNeely
 
 [rebase]
-	instructionFormat = (%an <%ae>) %s
+  instructionFormat = (%an <%ae>) %s
+
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
 [core]
-	pager = less -+F
-	editor = vim
+  excludesfile = ~/.gitignore_global
+  pager = less -+F
+  editor = vim
+
+# work specific things
+[includeIf "gitdir:~/adtran/"]
+  path = ~/adtran/.gitconfig-adtran
