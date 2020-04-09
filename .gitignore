@@ -8,6 +8,7 @@
 !.bash_aliases
 !.vimrc
 !.tmux.conf
+!.gitconfig
 !.gnome-terminal-settings.txt
 
 # for THIS repo, so it can clone right into ~/

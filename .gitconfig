@@ -1,0 +1,13 @@
+[user]
+email = joshua.a.neely@gmail.com
+name = Joshua Neely
+
+[includeIf "gitdir:~/adtran/"]
+    path = ~/adtran/.gitconfig
+
+[rebase]
+	instructionFormat = (%an <%ae>) %s
+
+[core]
+	pager = less -+F
+	editor = vim
