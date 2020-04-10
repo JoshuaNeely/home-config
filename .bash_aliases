@@ -63,7 +63,7 @@ mark() {
     NEW_MARKFILE_PATH=$MARK_FILES_PATH$MARK_NAME
     echo "creating $NEW_MARKFILE_PATH"
     mkdir -p $MARK_FILES_PATH
-    echo $PWD >> $NEW_MARKFILE_PATH
+    echo $PWD > $NEW_MARKFILE_PATH
   }
 
   if [ $# -gt 0 ] ; then
