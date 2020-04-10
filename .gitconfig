@@ -3,14 +3,13 @@
   name = JoshuaNeely
 
 [rebase]
-  instructionFormat = (%an <%ae>) %s
+  instructionFormat = (<%ae>) %s
 
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
 [core]
   excludesfile = ~/.gitignore_global
-  pager = less -+F
   editor = vim
 
 # work specific things
