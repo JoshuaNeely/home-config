@@ -15,4 +15,4 @@
 
 # work specific things
 [includeIf "gitdir:~/adtran/"]
-  path = ~/adtran/.gitconfig-adtran
+  path = ~/.gitconfig-adtran
