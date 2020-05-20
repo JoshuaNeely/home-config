@@ -55,13 +55,13 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='\A \[\e[32m\]\u \[\e[36m\]\w\[\e[00m\] '
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+if [[ -n $SSH_CLIENT ]]; then
+    REMOTE_SUFFIX="-remote"
 else
-    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='\A \[\e[32m\]\u \[\e[36m\]\w\[\e[00m\] '
+    REMOTE_SUFFIX=""
 fi
+PS1='\A \[\e[32m\]\u$REMOTE_SUFFIX \[\e[36m\]\w\[\e[00m\] '
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
