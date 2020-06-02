@@ -124,3 +124,7 @@ export NVM_DIR="$HOME/.nvm"
 # ~~~~~~ ruby and gem stuff
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+
+# ~~~~~~ use terminal for inputting gpg key password?
+export GPG_TTY=$(tty)
