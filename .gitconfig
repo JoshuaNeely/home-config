@@ -1,7 +1,7 @@
 [user]
   email = joshua.a.neely@gmail.com
   name = JoshuaNeely
-	signingkey = DF4AA7F3C59014ED35F54B78F340F7EE61142BFD
+	signingkey = 3E9F5FAA49C116035C6EF791EA576D2F5893C785
 
 [rebase]
   instructionFormat = (<%ae>) %s
