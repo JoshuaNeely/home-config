@@ -16,7 +16,9 @@
 # work specific things
 [includeIf "gitdir:~/adtran/"]
   path = ~/.gitconfig-adtran
+
 [commit]
 	gpgsign = true
+
 [gpg]
 	program = gpg2

@@ -93,10 +93,6 @@ export GHS_LMWHICH=@ghs
 
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
-export PATH=$HOME/local/go/bin:$PATH    # go utils; eg "go  gofmt..."
-export PATH=$(go env GOPATH)/bin:$PATH  # go installed binaries
-
-export GOPATH=$(go env GOPATH)  # set this ENV var to match the go default
 
 # set shell option to verify history commands
 shopt -s histverify
@@ -128,3 +124,6 @@ export PATH="$HOME/gems/bin:$PATH"
 
 # ~~~~~~ use terminal for inputting gpg key password?
 export GPG_TTY=$(tty)
+
+# ~~~~~~ texlive
+export PATH="/usr/local/texlive/2020/bin/x86_64-linux/:$PATH"
