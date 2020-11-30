@@ -100,3 +100,6 @@ recall() {
     recall_function $LOCATION_NAME
   fi
 }
+
+
+alias emacs="emacs -nw"
