@@ -11,7 +11,6 @@
 !.gitconfig
 !.gitconfig-adtran
 !.gnome-preferences.txt
-!.spacemacs
 
 # for THIS repo, so it can clone right into ~/
 !.gitignore

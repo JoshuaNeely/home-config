@@ -127,3 +127,9 @@ export GPG_TTY=$(tty)
 
 # ~~~~~~ texlive
 export PATH="/usr/local/texlive/2020/bin/x86_64-linux/:$PATH"
+
+# ~~~~~~ brew for linux
+export PATH="/home/linuxbrew/.linuxbrew/bin/:$PATH"
+
+# ~~~~~~ doom emacs
+export PATH="/home/josh/.emacs.d/bin/:$PATH"
