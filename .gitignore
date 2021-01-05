@@ -4,6 +4,7 @@
 # exceptions
 !one_time_setup.sh
 !.bashrc
+!.doom.d/*.el
 !.profile
 !.bash_aliases
 !.vimrc
