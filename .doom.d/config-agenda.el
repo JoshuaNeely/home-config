@@ -1,114 +1,145 @@
 ;; this file should be imported by config.el
 ;; just a nice way to split off some related config that is likely to grow independant of the main config
 
+(let* (
+       (one-day-seconds (time-add nil (* 3600 24)))
+       (one-day-seconds (time-add nil (* 3600 24)))
+       (three-day-seconds (time-add nil (* 3600 24 3)))
+       (seven-day-seconds (time-add nil (* 3600 24 7)))
 
-(setq org-agenda-custom-commands
-  '(("w" "work agenda" todo ""
+       (one-day-date-string (format-time-string "%Y-%m-%d" one-day-seconds))
+       (three-day-date-string (format-time-string "%Y-%m-%d" three-day-seconds))
+       (seven-day-date-string (format-time-string "%Y-%m-%d" seven-day-seconds))
 
-     (
-      (org-super-agenda-groups '(
-          (
-           :discard(
-             :not( :tag("work"))
-           )
-          )
-          (
-           :name "Overdue"
-           :face (:underline t :foreground "red")
-           :deadline past
-           :tag ("now" "today")
-          )
-          (
-           :name "Due Today"
-           :deadline today
-          )
-        ))
+      (due-one-day `(:name "Daily Forecast" :deadline (before ,one-day-date-string)))
+      (due-three-days `(:name "Three Day Forecast" :deadline (before ,three-day-date-string)))
+      (due-seven-days`(:name "Seven Day Forecast" :deadline (before ,seven-day-date-string)))
+
+      (overdue '(
+                 :name "Overdue"
+                 :face (:underline t :foreground "red")
+                 :deadline past
+                 ))
+
+      (discard-not-work '(
+                          :discard( :not( :tag("work") ) )
+                          ))
+
+      (discard-work '(
+                      :discard( :tag "work" )
+                      ))
+
+      (work-priority-a '(
+                         :name "Work P1"
+                         :and (:tag "work" :priority "A")
+                         ))
+
+      (work-priority-b '(
+                         :name "Work P2"
+                         :and (:tag "work" :priority "B")
+                         ))
+
+      (work-priority-c '(
+                         :name "Work P3"
+                         :and (:tag "work" :priority "C")
+                         ))
+
+      (work '(
+              :name "Work"
+              :tag("work")
+              ))
+
+      (reading '(
+                 :name "Reading"
+                 :tag("reading")
+                 :order 99
+                 ))
+
+      (household '(
+                   :name "Household"
+                   :tag "household"
+                   ))
+
+      (research '(
+                  :name "Research"
+                  :tag "research"
+                  :order 98
+                  ))
+
+      (date-associated '(
+                     :auto-planning t
+                     :order 100
+                     ))
+
+      (by-header '(:auto-parent t))
+
+      (by-tag '(:auto-tags t))
+
+
+      (work-groups `(
+                     ,discard-not-work
+                     ,overdue
+                     ,due-one-day
+                     ,due-three-days
+                     ,due-seven-days
+                     ;;,work-priority-a
+                     ;;,work-priority-b
+                     ;;,work-priority-c
+                     ,by-tag
+                     ,work
+                     ))
+      (personal-groups `(
+                         ,discard-work
+                         ,overdue
+                         ,due-one-day
+                         ,due-three-days
+                         ,due-seven-days
+                         ,household
+                         ,reading
+                         ,research
+                         ,date-associated
+                         ,by-tag
+                         ))
+      (combined-groups `(
+                         ,overdue
+                         ,due-one-day
+                         ,due-three-days
+                         ,due-seven-days
+                         ,work
+                         ,household
+                         ,by-tag
+                         ,research
+                         ,reading
+                         ,date-associated
+                         ))
       )
 
-     )
+  ;; make the local variables global, so later when agenda reads them, they have the latest
+  (setq p-groups personal-groups)
+  (setq w-groups work-groups)
+  (setq c-groups combined-groups)
 
-  ("p" "personal agenda" todo ""
+  ;; default value for normal-agenda. if you don't use the functions
+  (setq org-super-agenda-groups c-groups)
 
-     (
-      (org-feed-update-all)
-      (org-super-agenda-date-format "%A %e %B %Y")
-      (org-super-agenda-groups '(
-          (
-           :discard(
-             :tag ("work")
-           )
-          )
-          (
-           :name "Overdue"
-           :face (:underline t :foreground "red")
-           :deadline past
-          )
-          (
-           :name "Due Today"
-           :deadline today
-          )
-          (
-           :name "Household"
-           :tag "household"
-          )
-          (
-           :name "Research"
-           :tag "research"
-          )
-          (
-           :name "Trivial"
-           :tag "trivial"
-          )
-          (
-           :auto-planning t
-           :order 100
-          )
-        ))
-      )
+  (defun work-agenda ()
+    "Configure work super-agenda groups, and open the \"todo\" agenda"
+    (interactive)
+    (let ((org-super-agenda-groups w-groups))
+      (org-agenda nil "t")))
 
-     )
+  (defun personal-agenda ()
+    "Configure personal super-agenda groups, and open the \"todo\" agenda"
+    (interactive)
+    (let ((org-super-agenda-groups p-groups))
+      (org-agenda nil "t")))
 
-  ("c" "combined personal + work agenda" todo ""
-
-     (
-      (org-feed-update-all)
-      (org-super-agenda-date-format "%A %e %B %Y")
-      (org-super-agenda-groups '(
-          (
-           :name "Overdue"
-           :face (:underline t :foreground "red")
-           :deadline past
-          )
-          (
-           :name "Due Today"
-           :deadline today
-          )
-          (
-           :name "Work"
-           :tag "work"
-          )
-          (
-           :name "Household"
-           :tag "household"
-          )
-          (
-           :name "Research"
-           :tag "research"
-          )
-          (
-           :name "Trivial"
-           :tag "trivial"
-          )
-          (
-           :auto-planning t
-           :order 100
-          )
-        ))
-      )
-
-     )
-   ))
-
+  (defun combined-agenda ()
+    "Configure combined super-agenda groups, and open the \"todo\" agenda"
+    (interactive)
+    (let ((org-super-agenda-groups c-groups))
+      (org-agenda nil "t")))
+)
 
 ;; Customize the agenda mode line format.
 ;; the default included lots of junk I don't need. Namely, the file name the TODO came from.
@@ -123,30 +154,6 @@
 (use-package! org-super-agenda
   :after org-agenda
   :config
-  (setq org-super-agenda-groups
-        '(
-          (
-           :name "Personal"
-           :and(
-             :tag "personal"
-             :not(:tag "research")
-             :not(:tag "household")
-           )
-          )
-          (
-           :name "Household"
-           :tag "household"
-          )
-          (
-           :name "Research"
-           :tag "research"
-          )
-          (
-           :name "Work"
-           :tag "work"
-          )
-        )
-  )
   (org-super-agenda-mode)
 )
 

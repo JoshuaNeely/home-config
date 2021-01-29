@@ -103,3 +103,4 @@ recall() {
 
 
 alias emacs="emacs -nw"
+alias emacsclient="emacsclient -nw"

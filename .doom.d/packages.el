@@ -54,3 +54,5 @@
 (package! copy-as-format)
 (package! org-super-agenda)
 (package! ox-reveal)
+(package! windresize)
+(package! org-ql)
