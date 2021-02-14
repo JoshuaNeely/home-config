@@ -27,14 +27,9 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -53,17 +48,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(use-package org-journal
-  :bind
-  ("C-c n j" . org-journal-new-entry)
-  :custom
-  (org-journal-dir "~/org/")
-  (org-journal-date-prefix "#+TITLE: ")
-  (org-journal-file-format "%Y-%m-%d.org")
-  (org-journal-date-format "%A, %d %B %Y"))
-(setq org-journal-enable-agenda-integration t)
-
-(setq org-roam-directory "~/org/")
+(setq org-directory "~/org-files/")
+(setq org-roam-directory "~/org-files/")
 
 ;; used with org-roam-server...... might be outdated?
 (require 'simple-httpd)
@@ -80,7 +66,7 @@
 )
 
 (after! org
-  (setq org-agenda-files '("~/org" "~/org/daily"))
+  (setq org-agenda-files '("~/org-files" "~/org-files/daily"))
   (setq org-roam-server-host "0.0.0.0")
   (setq +org-roam-open-buffer-on-find-file nil)
 )
@@ -205,3 +191,9 @@
 (add-hook
  'org-mode-hook
  (function individual-visibility-source-blocks))
+
+
+;; eshell config
+(setq eshell-prefer-lisp-functions t)
+(setq password-cache-expiry 60)
+;;(add-to-list 'eshell-modules-list 'eshell-tramp)

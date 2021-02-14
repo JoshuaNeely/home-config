@@ -3,5 +3,5 @@
 (setq org-feed-alist
       '(("99PI"
          "https://feeds.99percentinvisible.org"
-         "~/org/feeds.org" "99PI Episodes")
+         "~/org-files/feeds.org" "99PI Episodes")
         ))
