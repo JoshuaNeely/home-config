@@ -10,7 +10,8 @@
    (quote
     ((eval org-update-all-dblocks)
      (org-confirm-babel-evaluate)
-     (eval org-clock-in)))))
+     (eval org-clock-in))))
+ '(send-mail-function (quote sendmail-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

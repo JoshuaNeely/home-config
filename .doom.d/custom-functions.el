@@ -172,3 +172,26 @@
   (interactive)
   (setq code-src-type (read-string "Enter the src language:  "))
   (insert (format "#+BEGIN_SRC %s\n#+END_SRC" code-src-type)))
+
+
+(defun send-email (recipient subject body)
+    "Send an email from you with a given recipient, subject, and message"
+    (interactive)
+
+    (progn
+        (mail)
+        (mail-to) (insert recipient)
+        (mail-subject) (insert subject)
+        (mail-text) (insert body)
+        (mail-send-and-exit)))
+
+
+(defun send-email-interactive ()
+    "Send an email from you with a given recipient, subject, and message"
+    (interactive)
+
+    (setq recipient (read-string "enter email recipient:  "))
+    (setq subject (read-string "enter email subject:  "))
+    (setq body (read-string "enter email body:  "))
+
+    (send-email recipient subject body))

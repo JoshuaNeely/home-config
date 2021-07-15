@@ -197,3 +197,21 @@
 (setq eshell-prefer-lisp-functions t)
 (setq password-cache-expiry 60)
 ;;(add-to-list 'eshell-modules-list 'eshell-tramp)
+
+
+;; visual line wrap
+(visual-line-mode t)
+(toggle-truncate-lines nil)
+
+
+;; open help buffers in permanent windows
+(add-to-list 'display-buffer-alist '("*Help*" display-buffer-same-window))
+
+
+;; WebDAV + org-mobile
+(setq org-mobile-directory "/home/josh/data/data")
+(setq org-mobile-inbox-for-pull "/home/josh/data/data/inbox-file.org")
+
+
+;; cycle visibility of archived headers on tab
+(setq org-cycle-open-archived-trees t)
