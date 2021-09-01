@@ -62,3 +62,4 @@
 (package! dockerfile-mode)
 (package! docker-tramp)
 (package! tide)
+(package! todoist)

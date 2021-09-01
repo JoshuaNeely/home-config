@@ -129,6 +129,9 @@
 ;; org publishing
 (load "~/.doom.d/config-publishing.el")
 
+;; midnight mode for periodic tasks
+(load "~/.doom.d/config-midnight.el")
+
 
 ;; customize default emacs font
 ;; only relevant for the GUI?
@@ -215,3 +218,9 @@
 
 ;; cycle visibility of archived headers on tab
 (setq org-cycle-open-archived-trees t)
+
+;; heading archival settings
+(setq org-archive-location "~/org-files/task_archive.org::datetree/")
+
+;; todoist integation
+(setq todoist-token "8e476a4df526d9ec82bf85ac01ca686e79590571")

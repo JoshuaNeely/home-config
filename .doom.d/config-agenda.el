@@ -29,6 +29,10 @@
                       :discard( :tag "work" )
                       ))
 
+      (discard-all '(
+                      :discard( :anything t)
+                      ))
+
       (work-priority-a '(
                          :name "Work P1"
                          :and (:tag "work" :priority "A")
@@ -112,12 +116,20 @@
                          ,reading
                          ,date-associated
                          ))
+      (briefing-groups `(
+                         ,overdue
+                         ,due-one-day
+                         ,due-three-days
+                         ,due-seven-days
+                         ,discard-all
+                         ))
       )
 
   ;; make the local variables global, so later when agenda reads them, they have the latest
   (setq p-groups personal-groups)
   (setq w-groups work-groups)
   (setq c-groups combined-groups)
+  (setq b-groups briefing-groups)
 
   ;; default value for normal-agenda. if you don't use the functions
   (setq org-super-agenda-groups c-groups)
@@ -138,6 +150,12 @@
     "Configure combined super-agenda groups, and open the \"todo\" agenda"
     (interactive)
     (let ((org-super-agenda-groups c-groups))
+      (org-agenda nil "t")))
+
+  (defun briefing-agenda ()
+    "Configure daily briefing super-agenda groups, and open the \"todo\" agenda"
+    (interactive)
+    (let ((org-super-agenda-groups b-groups))
       (org-agenda nil "t")))
 )
 

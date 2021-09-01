@@ -182,8 +182,14 @@
         (mail)
         (mail-to) (insert recipient)
         (mail-subject) (insert subject)
-        (mail-text) (insert body)
+        (mail-text) (insert (format "<#part type=\"text/html\" disposition=inline>%s<#/part>" body))
         (mail-send-and-exit)))
+
+(defun send-test-email ()
+  "reduce some typing. TEMP!"
+  (interactive)
+  (send-email "joshua.a.neely@gmail.com" "subject here" "this is the body!")
+  )
 
 
 (defun send-email-interactive ()
