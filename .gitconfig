@@ -18,7 +18,7 @@
   path = ~/.gitconfig-adtran
 
 [commit]
-	gpgsign = true
+	gpgsign = false
 
 [gpg]
 	program = gpg2

@@ -91,6 +91,7 @@ fi
 export GHS_LMHOST=@corp-licmgr.adtran.com
 export GHS_LMWHICH=@ghs
 
+export PATH=/snap/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/local/bin:$PATH
 

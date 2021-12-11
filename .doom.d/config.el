@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-nord)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -51,19 +51,6 @@
 (setq org-directory "~/org-files/")
 (setq org-roam-directory "~/org-files/")
 
-;; used with org-roam-server...... might be outdated?
-(require 'simple-httpd)
-(setq httpd-host "0.0.0.0")
-(setq httpd-root "/var/www")
-;;(httpd-start)
-
-(use-package org-roam-server)
-  :ensure nil
-  :load-path "~/local/org-roam-server/"
-
-(unless (server-running-p)
-  ;;(org-roam-server-mode)
-)
 
 (after! org
   (setq org-agenda-files '("~/org-files" "~/org-files/daily"))
@@ -117,9 +104,6 @@
 ;; custom agenda config
 (load "~/.doom.d/config-agenda.el")
 
-;; latex config
-(load "~/.doom.d/config-latex.el")
-
 ;; rss feed config
 (load "~/.doom.d/config-rss.el")
 
@@ -128,9 +112,6 @@
 
 ;; org publishing
 (load "~/.doom.d/config-publishing.el")
-
-;; midnight mode for periodic tasks
-(load "~/.doom.d/config-midnight.el")
 
 
 ;; customize default emacs font
