@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -112,6 +112,9 @@
 
 ;; org publishing
 (load "~/.doom.d/config-publishing.el")
+
+;; ctags magic
+(load "~/.doom.d/config-ctags.el")
 
 
 ;; customize default emacs font
