@@ -201,3 +201,9 @@
     (setq body (read-string "enter email body:  "))
 
     (send-email recipient subject body))
+
+
+(defun open-task-inbox ()
+  "Open my ongoing tasks inbox. Combine with archiving workflow."
+  (interactive)
+  (find-file "/home/josh/org-files/task_inbox.org"))

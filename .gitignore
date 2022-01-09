@@ -4,13 +4,12 @@
 # exceptions
 !one_time_setup.sh
 !.bashrc
+!bash_config/*.bashrc
 !.doom.d/*.el
 !.profile
-!.bash_aliases
 !.vimrc
 !.tmux.conf
 !.gitconfig
-!.gitconfig-adtran
 !.gnome-preferences.txt
 
 # for THIS repo, so it can clone right into ~/

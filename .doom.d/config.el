@@ -62,14 +62,6 @@
 ;; used when exporting org files to html, latex, etc
 (setq user-full-name "Joshua Neely")
 
-
-;; remove a bunch of useless TODO items you have by default
-;; info on syntax and stuff https://orgmode.org/manual/Workflow-states.html#Workflow-states
-(setq org-todo-keywords
-   '((sequence "TODO(t)" "|" "DONE(d)" "CANCELLED(c)")
-     (sequence "[ ](T)" "|" "[X](D)" "[-](C)"))
-   )
-
 ;; right align tags
 ;; doesn't appear to be a simple way to get the LAST column; it's just... some arbitrary number
 ;; the negative makes it right-flush (vs left-flush by default) with the column
@@ -101,6 +93,9 @@
     :append :local)))
 
 
+;; custom keymapping
+(load "~/.doom.d/config-keymapping.el")
+
 ;; custom agenda config
 (load "~/.doom.d/config-agenda.el")
 
@@ -116,11 +111,24 @@
 ;; ctags magic
 (load "~/.doom.d/config-ctags.el")
 
+;; custom archival config and functions
+(load "~/.doom.d/config-archival.el")
+
 
 ;; customize default emacs font
 ;; only relevant for the GUI?
 (add-to-list 'default-frame-alist
              '(font . "DejaVu Sans Mono-14"))
+
+
+;; remove a bunch of useless TODO items you have by default
+;; info on syntax and stuff https://orgmode.org/manual/Workflow-states.html#Workflow-states
+;; seems that maybe agenda was squashing this? I moved it below the agenda loading
+(setq org-todo-keywords
+   '((sequence "TODO(t)" "|" "DONE(d)" "CANCELLED(c)")
+     (sequence "[ ](T)" "|" "[X](D)" "[-](C)"))
+   )
+
 
 ;; clocking
 (setq org-clock-idle-time 5)
@@ -200,11 +208,25 @@
 (setq org-mobile-inbox-for-pull "/home/josh/data/data/inbox-file.org")
 
 
-;; cycle visibility of archived headers on tab
-(setq org-cycle-open-archived-trees t)
-
-;; heading archival settings
-(setq org-archive-location "~/org-files/task_archive.org::datetree/")
-
 ;; todoist integation
 (setq todoist-token "8e476a4df526d9ec82bf85ac01ca686e79590571")
+
+
+;; open my task inbox on emacs start
+;;(add-hook 'emacs-startup-hook #'open-task-inbox)
+;; i think i may prefer using the topmost link of the splash screen
+
+
+;; doom dashboard config
+(setq +doom-dashboard-menu-sections
+  '(("Open Task Inbox"
+     :face (:inherit (doom-dashboard-menu-title bold))
+     :action open-task-inbox)
+    ("Recently opened files"
+     :action recentf-open-files)
+    ("Open private configuration"
+     :when (file-directory-p doom-private-dir)
+     :action doom/open-private-config)
+    ("Open documentation"
+     :icon (all-the-icons-octicon "book" :face 'doom-dashboard-menu-title)
+     :action doom/help)))

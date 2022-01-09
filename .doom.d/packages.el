@@ -63,3 +63,4 @@
 (package! docker-tramp)
 (package! tide)
 (package! todoist)
+(package! matlab-mode)
