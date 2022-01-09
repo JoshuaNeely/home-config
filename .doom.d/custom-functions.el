@@ -207,3 +207,8 @@
   "Open my ongoing tasks inbox. Combine with archiving workflow."
   (interactive)
   (find-file "/home/josh/org-files/task_inbox.org"))
+
+(defun open-work-task-inbox ()
+  "Open my ongoing tasks inbox. Combine with archiving workflow."
+  (interactive)
+  (find-file "/home/josh/org-files/task_inbox_work.org"))

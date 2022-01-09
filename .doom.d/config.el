@@ -53,7 +53,7 @@
 
 
 (after! org
-  (setq org-agenda-files '("~/org-files" "~/org-files/daily"))
+  (setq org-agenda-files '("~/org-files/task_inbox.org" "~/org-files/task_inbox_work.org"))
   (setq org-roam-server-host "0.0.0.0")
   (setq +org-roam-open-buffer-on-find-file nil)
 )
@@ -222,6 +222,9 @@
   '(("Open Task Inbox"
      :face (:inherit (doom-dashboard-menu-title bold))
      :action open-task-inbox)
+    ("Open Work Task Inbox"
+     :face (:inherit (doom-dashboard-menu-title bold))
+     :action open-work-task-inbox)
     ("Recently opened files"
      :action recentf-open-files)
     ("Open private configuration"
