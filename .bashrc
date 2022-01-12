@@ -7,5 +7,6 @@ source ~/bash_config/PATH.bashrc
 source ~/bash_config/history.bashrc
 source ~/bash_config/misc.bashrc
 source ~/bash_config/functions.bashrc
+source ~/bash_config/colors.bashrc
 #source ~/bash_config/ruby.bashrc
 #source ~/bash_config/npm.bashrc
