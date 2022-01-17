@@ -212,3 +212,9 @@
   "Open my ongoing tasks inbox. Combine with archiving workflow."
   (interactive)
   (find-file "/home/josh/org-files/task_inbox_work.org"))
+
+
+(defun magit-graph ()
+  "Open a magit log buffer with decorated graph."
+  (interactive)
+  (magit-log-current (magit-log-read-revs t) (list "--decorate" "--color" "--graph")))
