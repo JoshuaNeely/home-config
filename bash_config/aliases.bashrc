@@ -9,5 +9,5 @@ alias tmux0='tmux attach -t0'
 
 alias vi='vim'
 
-alias emacs="emacs -nw"
+alias emacs="emacsclient -a ''"
 alias emacsclient="emacsclient -nw"
