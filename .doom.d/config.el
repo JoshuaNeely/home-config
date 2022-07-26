@@ -4,11 +4,6 @@
 ;; sync' after modifying this file!
 
 
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -93,26 +88,31 @@
     :append :local)))
 
 
-;; custom keymapping
 (load "~/.doom.d/config-keymapping.el")
 
-;; custom agenda config
 (load "~/.doom.d/config-agenda.el")
 
-;; rss feed config
 (load "~/.doom.d/config-rss.el")
 
-;; custom functions
 (load "~/.doom.d/custom-functions.el")
 
-;; org publishing
 (load "~/.doom.d/config-publishing.el")
 
-;; ctags magic
 (load "~/.doom.d/config-ctags.el")
 
-;; custom archival config and functions
+(load "~/.doom.d/config-clock.el")
+
 (load "~/.doom.d/config-archival.el")
+
+(load "~/.doom.d/config-popups.el")
+
+(load "~/.doom.d/config-dired.el")
+
+(load "~/.doom.d/config-flycheck.el")
+
+(load "~/.doom.d/config-lsp.el")
+
+(load "~/.doom.d/config-uniquify.el")
 
 
 ;; customize default emacs font
@@ -128,17 +128,6 @@
    '((sequence "TODO(t)" "|" "DONE(d)" "CANCELLED(c)")
      (sequence "[ ](T)" "|" "[X](D)" "[-](C)"))
    )
-
-
-;; clocking
-(setq org-clock-idle-time 5)
-;; (setq org-clock-persist-insinuate t) ;; apparently this is not a variable... maybe it is outdated?
-(setq org-clock-persist t)
-(setq org-clock-in-resume t)
-(setq org-clock-persist-query-resume nil)
-(setq org-clock-report-include-clocking-task t)
-(setq org-agenda-clockreport-parameter-plist
-        '(:maxlevel 6 :link t :stepskip0 t :fileskip0 t :hidefiles t :compact t :narrow 60 :score 0))
 
 
 ;; doom emacs customizations
@@ -233,3 +222,7 @@
     ("Open documentation"
      :icon (all-the-icons-octicon "book" :face 'doom-dashboard-menu-title)
      :action doom/help)))
+
+
+;;(use-package! org-pandoc-import :after org)
+;;(use-package! ox-pandoc :after org)

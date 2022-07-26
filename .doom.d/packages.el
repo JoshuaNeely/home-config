@@ -63,4 +63,18 @@
 (package! docker-tramp)
 (package! tide)
 (package! todoist)
+(package! esup)
 (package! matlab-mode) ;; sourceforge is down or something. try again later?
+(package! swig-mode)
+(package! pyvenv)
+(package! direx)
+(package! elpy)  ;; indexing and source searching in python
+(package! lsp-mode)
+
+;; import various markdown formats TO org
+;;(package! org-pandoc-import
+;;        :recipe (:host github
+;;        :repo "tecosaur/org-pandoc-import"
+;;        :files ("*.el" "filters" "preprocessors")))
+;; export FROM org to github flavored markdown or others
+;;(package! ox-pandoc)
