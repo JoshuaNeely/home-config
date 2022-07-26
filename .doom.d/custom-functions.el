@@ -43,36 +43,20 @@
 ;;(git-workflow)
 
 
-;; create a customized clock report template!
-(defun generate-daily-clock-report ()
-  "Return the template for a customized clock report at point. C-c C-c to generate it."
-  (setq today-time-string (format-time-string "\"%Y-%m-%d\""))
-  (setq raw-custom-clock-report-template "#+BEGIN: clocktable :scope agenda :block %s :maxlevel 5 :link nil :stepskip0 t :fileskip0 t :hidefiles t\n#+END:")
-  (setq custom-clock-report-template (format raw-custom-clock-report-template today-time-string))
-  custom-clock-report-template)
-
-;; daily time reporting outline
-(defun daily-tasks-outline ()
-  "Insert the template for a daily-tasks outline."
+(defun clock-report ()
   (interactive)
-  (let
-      (
-       (basic-outline "
-* Journal
-
-* Miscellaneous
-
-* Work Tasks :work:
-
-* Workflow and Investment :workflow:
-
-* Meetings
-
-* Absences\n\n")
-       (time-summary-section (format "* Time Summary\n%s\n\n" (generate-daily-clock-report)))
-       )
-    (insert basic-outline time-summary-section)
-    ))
+  (setq clock-report-buffer "clock-report")
+  (setq clock-report-instructions "=C-c C-c= ")
+  (setq clock-report-template
+        "#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 7 :tstart \"<-1d>\" :tend \"<now>\" :link t :stepskip0 t :fileskip0 t :hidefiles t\n#+END:")
+  (get-buffer-create clock-report-buffer)
+  (persp-add-buffer clock-report-buffer)
+  (with-current-buffer clock-report-buffer
+        (org-mode)
+        (erase-buffer)
+        (insert clock-report-template)
+        (org-clock-report))
+  (switch-to-buffer clock-report-buffer))
 
 
 (defun insert-publishing-template ()
