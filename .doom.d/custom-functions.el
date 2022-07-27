@@ -46,9 +46,12 @@
 (defun clock-report ()
   (interactive)
   (setq clock-report-buffer "clock-report")
-  (setq clock-report-instructions "=C-c C-c= ")
+  (setq today-time-string (format-time-string "\"%Y-%m-%d\""))
   (setq clock-report-template
-        "#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 7 :tstart \"<-1d>\" :tend \"<now>\" :link t :stepskip0 t :fileskip0 t :hidefiles t\n#+END:")
+        (setq clock-report-template (format
+                "#+BEGIN: clocktable :scope agenda-with-archives :block %s :maxlevel 5 :link t :stepskip0 t :fileskip0 t :hidefiles t\n#+END:"
+                today-time-string)))
+
   (get-buffer-create clock-report-buffer)
   (persp-add-buffer clock-report-buffer)
   (with-current-buffer clock-report-buffer
