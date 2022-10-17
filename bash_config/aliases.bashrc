@@ -11,3 +11,7 @@ alias vi='vim'
 
 alias emacs="emacsclient -a ''"
 alias emacsclient="emacsclient -nw"
+
+alias open="xdg-open"
+
+alias ssh="ssh -C -X"

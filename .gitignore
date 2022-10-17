@@ -1,16 +1,4 @@
 # exclude everything
 *
 
-# exceptions
-!one_time_setup.sh
-!.bashrc
-!bash_config/*.bashrc
-!.doom.d/*.el
-!.profile
-!.vimrc
-!.tmux.conf
-!.gitconfig
-!.gnome-preferences.txt
-
-# for THIS repo, so it can clone right into ~/
-!.gitignore
+# I add things manually with `git add -f xyz`
