@@ -114,6 +114,12 @@
 
 (load "~/.doom.d/config-uniquify.el")
 
+(load "~/.doom.d/config-wsl.el")
+
+(load "~/.doom.d/config-plantuml.el")
+
+(load "~/.doom.d/config-gui.el")
+
 
 ;; customize default emacs font
 ;; only relevant for the GUI?
@@ -183,6 +189,8 @@
 ;;(add-to-list 'eshell-modules-list 'eshell-tramp)
 
 
+(setq evil-shift-width 2)
+
 ;; visual line wrap
 (visual-line-mode t)
 (toggle-truncate-lines nil)
@@ -222,7 +230,6 @@
     ("Open documentation"
      :icon (all-the-icons-octicon "book" :face 'doom-dashboard-menu-title)
      :action doom/help)))
-
 
 ;;(use-package! org-pandoc-import :after org)
 ;;(use-package! ox-pandoc :after org)

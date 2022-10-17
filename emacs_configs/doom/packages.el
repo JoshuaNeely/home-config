@@ -69,7 +69,8 @@
 (package! pyvenv)
 (package! direx)
 (package! elpy)  ;; indexing and source searching in python
-(package! lsp-mode)
+;;(package! lsp-mode)
+(package! vue-mode
 
 ;; import various markdown formats TO org
 ;;(package! org-pandoc-import

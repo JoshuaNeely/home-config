@@ -199,3 +199,14 @@
   "Open my ongoing tasks inbox. Combine with archiving workflow."
   (interactive)
   (find-file "/home/josh/org-files/task_inbox_work.org"))
+
+
+(defun connect-pi ()
+  "connect to pi"
+  (interactive)
+  (dired "/ssh:pi@192.168.86.37:/home/pi/"))
+
+(defun connect-josh-pi ()
+  "connect to pi"
+  (interactive)
+  (dired "/ssh:pi@josh-pi:/home/pi/"))

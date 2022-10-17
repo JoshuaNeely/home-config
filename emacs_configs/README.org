@@ -1,0 +1,22 @@
+* Problem
+Attempting to find a nice way to backup, version, and use my emacs state.
+
+Doom attempts to do this with immutable infrastructure. Only store configs. Build out the install from the state.
+This is reasonable, but there is still some need to store the actual STATE. Config can be broken or get weird.
+Also I want to be able to migrate off of doom sometimes.
+
+I might like to flip between multiple versions of emacs-core-install, or between doom, spacemacs, or some custom version.
+
+Emacs always wants to find it's install at =~/.emacs.d=.
+So the solution is symlinking this known path with some backed-up paths.
+
+* Symlinking Configs
+Following the idea presented here: https://stackoverflow.com/a/21568966
+
+This directory should hold my doom config and installation(s) of emacs.
+
+Symlink to select which one I want to use.
+
+eg
+: ln -s /home/josh/emacs_configs/doom /home/josh/.doom.d
+: ln -s /home/josh/emacs_configs/28.1/.emacs.d /home/josh/.emacs.d
