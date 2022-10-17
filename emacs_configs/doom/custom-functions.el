@@ -201,12 +201,7 @@
   (find-file "/home/josh/org-files/task_inbox_work.org"))
 
 
-(defun connect-pi ()
-  "connect to pi"
+(defun magit-graph ()
+  "Open a magit log buffer with decorated graph."
   (interactive)
-  (dired "/ssh:pi@192.168.86.37:/home/pi/"))
-
-(defun connect-josh-pi ()
-  "connect to pi"
-  (interactive)
-  (dired "/ssh:pi@josh-pi:/home/pi/"))
+  (magit-log-current (magit-log-read-revs t) (list "--decorate" "--color" "--graph")))
