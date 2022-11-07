@@ -64,13 +64,18 @@
 (package! tide)
 (package! todoist)
 (package! esup)
-(package! matlab-mode) ;; sourceforge is down or something. try again later?
 (package! swig-mode)
 (package! pyvenv)
 (package! direx)
 (package! elpy)  ;; indexing and source searching in python
 ;;(package! lsp-mode)
-(package! vue-mode
+(package! vue-mode)
+
+(unpin! org-roam company-org-roam)
+(package! websocket)
+(package! org-roam-ui)
+
+(package! iedit)
 
 ;; import various markdown formats TO org
 ;;(package! org-pandoc-import

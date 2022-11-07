@@ -40,18 +40,19 @@
   ;;  (message "NOT equal"))
   )
 
-;;(git-workflow)
-
-
 (defun clock-report ()
   (interactive)
-  (setq clock-report-buffer "clock-report")
-  (setq today-time-string (format-time-string "\"%Y-%m-%d\""))
+  ;;(setq clock-report-buffer "20221018154502-ephemeral_clock_report.org")
+  (setq clock-report-buffer "clock_report")
+  (setq selected-time-string (org-read-date))
   (setq clock-report-template
         (setq clock-report-template (format
-                "#+BEGIN: clocktable :scope agenda-with-archives :block %s :maxlevel 5 :link t :stepskip0 t :fileskip0 t :hidefiles t\n#+END:"
-                today-time-string)))
+                "#+BEGIN: clocktable :scope agenda-with-archives :block %s :maxlevel 5 :link t :stepskip0 t :fileskip0 t :hidefiles t :match \"-personal\"\n#+END:"
+                selected-time-string)))
 
+  ;; ephemeral buffer broke after newested updates
+  ;; couldn't rebuild clock report without tossing the buffer
+  ;; saving to a file works okay though, so I have dedicated a file to it
   (get-buffer-create clock-report-buffer)
   (persp-add-buffer clock-report-buffer)
   (with-current-buffer clock-report-buffer
@@ -72,6 +73,28 @@
     (insert publishing-keywords)
     ))
 
+
+(defun yank-absolute-link-to-current-file()
+  (interactive)
+  (setq file-abs-path (file-relative-name buffer-file-name "/"))
+  (kill-new (format "[[%s][%s]]" file-abs-path file-abs-path)))
+
+(defun yank-project-link-to-current-file()
+  (interactive)
+  (setq project-path (file-name-directory (directory-file-name (doom-project-root))))
+  (setq file-abs-path (file-relative-name buffer-file-name "/"))
+  (setq file-project-path (file-relative-name buffer-file-name project-path))
+  (kill-new (format "[[%s][%s]]" file-abs-path file-project-path)))
+
+(defun yank-link-to-current-file()
+  (interactive)
+  (setq directory-name-only (file-name-directory buffer-file-name))
+  (setq file-name-only (file-relative-name buffer-file-name directory-name-only))
+  (setq file-abs-path (file-relative-name buffer-file-name "/"))
+  (kill-new (format "[[%s][%s]]" file-abs-path file-name-only)))
+
+
+;; [[file:~/git/USSF/tnc/openc3/openc3-cmd-tlm-api/app/channels/limits_events_channel.rb][openc3-cmd-tlm-api/app/channels/limits_events_channel.rb]]
 
 ;; insert a TODO item due today
 ;; * TODO test123
