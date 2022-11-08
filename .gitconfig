@@ -14,11 +14,8 @@
   editor = vim
 
 # work specific things
-[includeIf "gitdir:~/adtran/"]
-  path = ~/.gitconfig-adtran
-
-[includeIf "gitdir:~/git/USSF/"]
-  path = ~/.gitconfig-is4s
+[includeIf "gitdir:~/git/ussf/"]
+  path = ~/rcs/.gitconfig-is4s
 
 [commit]
 	gpgsign = false
@@ -30,9 +27,6 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager-core
 	# credentialStore = gpg
 	credentialStore = plaintext
-
-[credential "https://dev.azure.com"]
-	useHttpPath = true
 
 [credential "https://gitlab.gc3.io"]
 	provider = generic
