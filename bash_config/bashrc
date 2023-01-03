@@ -1,0 +1,12 @@
+# symlink this file to ~/.bashrc
+
+# ~~~~~~~~~~~~ distributed config
+source ~/home-config/bash_config/ubuntu-defaults.bashrc
+source ~/home-config/bash_config/aliases.bashrc
+source ~/home-config/bash_config/vim.bashrc
+source ~/home-config/bash_config/PS1.bashrc
+source ~/home-config/bash_config/PATH.bashrc
+source ~/home-config/bash_config/history.bashrc
+source ~/home-config/bash_config/misc.bashrc
+source ~/home-config/bash_config/functions.bashrc
+source ~/home-config/bash_config/colors.bashrc
