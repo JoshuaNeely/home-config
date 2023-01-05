@@ -42,6 +42,6 @@ symlink_config_file "bash_config/bashrc" ".bashrc"
 symlink_config_file "emacs_configs/doom" ".doom.d"
 
 # relies on submodules
-git submodule
-symlink_config_file "password-store" ".password-store"
-symlink_config_file "org-files"
+#git submodule
+#symlink_config_file "password-store" ".password-store"
+#symlink_config_file "org-files" # org roam doesnt work well with symlinks... needs to be actually really located there

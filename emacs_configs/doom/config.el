@@ -65,7 +65,7 @@
 
 
 (after! org
-  (setq org-agenda-files '("~/org-files/task_inbox.org" "~/org-files/task_inbox_work.org"))
+  (setq org-agenda-files '("~/org-files/task_inbox.org" "~/org-files/task_inbox_work.org" "~/org-files/calendar.org"))
   (setq org-roam-server-host "0.0.0.0")
   (setq +org-roam-open-buffer-on-find-file nil)
 )

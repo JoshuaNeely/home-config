@@ -3,4 +3,4 @@
 	url = https://github.com/JoshuaNeely/password-store.git
 [submodule "org-files"]
 	path = org-files
-	url = https://github.com/JoshuaNeely/org-files.git
+	url = /home/jneely/org-files/
