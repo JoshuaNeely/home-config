@@ -216,12 +216,15 @@
 (defun open-task-inbox ()
   "Open my ongoing tasks inbox. Combine with archiving workflow."
   (interactive)
-  (find-file "/home/josh/org-files/task_inbox.org"))
+  (let ((inboxdir (format "/home/%s/org-files/task_inbox.org" user-login-name)))
+        (find-file inboxdir)))
 
 (defun open-work-task-inbox ()
   "Open my ongoing tasks inbox. Combine with archiving workflow."
   (interactive)
-  (find-file "/home/josh/org-files/task_inbox_work.org"))
+  (let ((inboxdir (format "/home/%s/org-files/task_inbox_work.org" user-login-name)))
+        (find-file inboxdir)))
+
 
 
 (defun magit-graph ()

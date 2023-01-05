@@ -4,7 +4,7 @@
 ;;  :hook
 ;;((python-mode . lsp)))
 
-(setq lsp-pyls-plugins-flake8-config "/home/josh/tox.ini")
+(setq lsp-pyls-plugins-flake8-config (format "/home/%s/tox.ini" user-login-name))
 
 (setq lsp-pylsp-plugins-flake8-enabled nil)
 (setq lsp-pylsp-plugins-pycodestyle-enabled nil)
@@ -18,5 +18,3 @@
 (setq lsp-pylsp-plugins-pycodestyle-ignore '("D101", "302"))
 (setq lsp-pylsp-plugins-pydocstyle-ignore '("D101", "302"))
 (setq lsp-pylsp-plugins-flake8-ignore '("D101", "302"))
-
-;;(setq lsp-pylsp-plugins-flake8-config "/home/josh/tox.ini")

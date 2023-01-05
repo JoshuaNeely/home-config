@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-CONFIG_DIR=/home/josh/home-config
-HOME_DIR=/home/josh
+CONFIG_DIR=$HOME/home-config
+HOME_DIR=$HOME
 
 BACKUP_DIR=$HOME_DIR/home-config-backup
 mkdir -p $BACKUP_DIR
@@ -9,15 +9,17 @@ mkdir -p $BACKUP_DIR
 
 symlink_config_file() {
     FILE_NAME=${1:?"ERROR: FILE_NAME not set!"}
-    LINK_NAME=${2:-"$FILE_NAME"}
+    LINK_NAME="${2:-"$FILE_NAME"}"
+    BACKUP_NAME="$LINK_NAME_$(date +%s)"
 
     if [[ -z $FILE_NAME ]] ; then
         echo "Missing file path!"
     else
         # backup if necessary
-        mv $HOME_DIR/$LINK_NAME $BACKUP_DIR/$LINK_NAME 2>/dev/null
+        mv $HOME_DIR/$LINK_NAME $BACKUP_DIR/$BACKUP_NAME 2>/dev/null
 
         # create a new symlink
+        echo "ln -s $CONFIG_DIR/$FILE_NAME $HOME_DIR/$LINK_NAME"
         ln -s $CONFIG_DIR/$FILE_NAME $HOME_DIR/$LINK_NAME
     fi
 }
@@ -38,3 +40,8 @@ symlink_config_file ".vimrc"
 # link with asymetric names/paths
 symlink_config_file "bash_config/bashrc" ".bashrc"
 symlink_config_file "emacs_configs/doom" ".doom.d"
+
+# relies on submodules
+git submodule
+symlink_config_file "password-store" ".password-store"
+symlink_config_file "org-files"

@@ -1,0 +1,6 @@
+[submodule "password-store"]
+	path = password-store
+	url = https://github.com/JoshuaNeely/password-store.git
+[submodule "org-files"]
+	path = org-files
+	url = https://github.com/JoshuaNeely/org-files.git

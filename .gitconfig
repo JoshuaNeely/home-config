@@ -1,7 +1,7 @@
 [user]
   email = joshua.a.neely@gmail.com
   name = JoshuaNeely
-  signingkey = 3E9F5FAA49C116035C6EF791EA576D2F5893C785
+  #signingkey = 3E9F5FAA49C116035C6EF791EA576D2F5893C785
 
 [rebase]
   instructionFormat = (<%ae>) %s
@@ -11,11 +11,11 @@
 
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vim
+  editor = emacs
 
 # work specific things
-[includeIf "gitdir:~/git/ussf/"]
-  path = ~/rcs/.gitconfig-is4s
+#[includeIf "gitdir:~/git/ussf/"]
+  #path = ~/rcs/.gitconfig-is4s
 
 [commit]
 	gpgsign = false
@@ -27,6 +27,7 @@
 	helper = /usr/local/share/gcm-core/git-credential-manager-core
 	# credentialStore = gpg
 	credentialStore = plaintext
+	helper = /usr/local/bin/git-credential-manager
 
 [credential "https://gitlab.gc3.io"]
 	provider = generic

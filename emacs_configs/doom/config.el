@@ -142,7 +142,7 @@
 ;; customize default emacs font
 ;; only relevant for the GUI?
 (add-to-list 'default-frame-alist
-             '(font . "DejaVu Sans Mono-14"))
+             '(font . "DejaVu Sans Mono-12"))
 
 
 ;; remove a bunch of useless TODO items you have by default
