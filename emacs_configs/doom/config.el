@@ -138,6 +138,10 @@
 
 (load "~/.doom.d/config-gui.el")
 
+(load "~/.doom.d/config-roam.el")
+
+
+(display-time-mode)
 
 ;; customize default emacs font
 ;; only relevant for the GUI?
