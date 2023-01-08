@@ -11,3 +11,4 @@ source ~/home-config/bash_config/misc.bashrc
 source ~/home-config/bash_config/functions.bashrc
 source ~/home-config/bash_config/colors.bashrc
 source ~/home-config/bash_config/openshift-oc.bashrc
+source ~/home-config/bash_config/openshift-crc.bashrc
