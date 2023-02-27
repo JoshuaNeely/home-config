@@ -46,7 +46,7 @@ recall() {
 
 
 docker-login-gc3() {
-  pass gc3/token | docker login -u josh.neely --password-stdin docker.gc3.io
+  pass is4s/gc3/token | docker login -u josh.neely --password-stdin docker.gc3.io
 }
 
 set-gitlab-pat-env-var() {

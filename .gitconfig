@@ -31,3 +31,5 @@
 
 [credential "https://gitlab.gc3.io"]
 	provider = generic
+[merge]
+	conflictStyle = diff3

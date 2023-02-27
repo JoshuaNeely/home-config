@@ -12,3 +12,10 @@ source ~/home-config/bash_config/functions.bashrc
 source ~/home-config/bash_config/colors.bashrc
 source ~/home-config/bash_config/openshift-oc.bashrc
 source ~/home-config/bash_config/openshift-crc.bashrc
+source ~/home-config/bash_config/kubernetes-kubectl.bashrc
+source ~/home-config/bash_config/gitlab-glab.bashrc
+source ~/home-config/bash_config/virtualenvwrapper.bashrc
+source ~/home-config/bash_config/node-version-manager.bashrc
+source ~/home-config/bash_config/apps.bashrc
+
+source ~/home-config/bash_config/is4s.bashrc

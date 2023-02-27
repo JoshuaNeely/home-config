@@ -91,7 +91,7 @@
   (setq directory-name-only (file-name-directory buffer-file-name))
   (setq file-name-only (file-relative-name buffer-file-name directory-name-only))
   (setq file-abs-path (file-relative-name buffer-file-name "/"))
-  (kill-new (format "[[%s][%s]]" file-abs-path file-name-only)))
+  (kill-new (format "[[/%s][%s]]" file-abs-path file-name-only)))
 
 
 ;; [[file:~/git/USSF/tnc/openc3/openc3-cmd-tlm-api/app/channels/limits_events_channel.rb][openc3-cmd-tlm-api/app/channels/limits_events_channel.rb]]
@@ -170,10 +170,27 @@
 ;; makes life easier
 
 (defun new-terminal-buffer ()
-  "Create a new terminal and register it with the workspace system"
+  "vterm works 'better' in every way except emacs interoperability.
+   It is more performant and deals with special characters better.
+   This helps with ssh, docker shells, and similar.
+   It comes at the price of interacting worse with native emacs integrations.
+   Eg doom modelines, subtle emacs FS interactions, etc."
+  (interactive)
+  ;; I will prefer the more native emacs version for day-to-day
+  (new-terminal-buffer-elisp))
+
+(defun new-terminal-buffer-elisp ()
+  "Create a new elisp terminal and register it with the workspace system"
   (interactive)
   (setq new-terminal-name (read-string "Enter new terminal name:  "))
   (ansi-term "/bin/bash" new-terminal-name)
+  (persp-add-buffer (format "*%s*" new-terminal-name)))
+
+(defun new-terminal-buffer-vterm()
+  "Create a new elisp terminal and register it with the workspace system"
+  (interactive)
+  (setq new-terminal-name (read-string "Enter new terminal name:  "))
+  (vterm new-terminal-name)
   (persp-add-buffer (format "*%s*" new-terminal-name)))
 
 
