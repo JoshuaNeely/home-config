@@ -93,8 +93,13 @@
   (setq file-abs-path (file-relative-name buffer-file-name "/"))
   (kill-new (format "[[/%s][%s]]" file-abs-path file-name-only)))
 
-
-;; [[file:~/git/USSF/tnc/openc3/openc3-cmd-tlm-api/app/channels/limits_events_channel.rb][openc3-cmd-tlm-api/app/channels/limits_events_channel.rb]]
+(defun yank-link-to-current-file-line()
+  (interactive)
+  (setq directory-name-only (file-name-directory buffer-file-name))
+  (setq file-name-only (file-relative-name buffer-file-name directory-name-only))
+  (setq file-abs-path (file-relative-name buffer-file-name "/"))
+  (setq line-number (line-number-at-pos))
+  (kill-new (format "[[/%s::%s][%s]]" file-abs-path line-number file-name-only)))
 
 ;; insert a TODO item due today
 ;; * TODO test123
