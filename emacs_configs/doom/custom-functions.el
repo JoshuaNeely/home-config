@@ -74,32 +74,8 @@
     ))
 
 
-(defun yank-absolute-link-to-current-file()
-  (interactive)
-  (setq file-abs-path (file-relative-name buffer-file-name "/"))
-  (kill-new (format "[[%s][%s]]" file-abs-path file-abs-path)))
+(load "~/.doom.d/functions/yank.el")
 
-(defun yank-project-link-to-current-file()
-  (interactive)
-  (setq project-path (file-name-directory (directory-file-name (doom-project-root))))
-  (setq file-abs-path (file-relative-name buffer-file-name "/"))
-  (setq file-project-path (file-relative-name buffer-file-name project-path))
-  (kill-new (format "[[%s][%s]]" file-abs-path file-project-path)))
-
-(defun yank-link-to-current-file()
-  (interactive)
-  (setq directory-name-only (file-name-directory buffer-file-name))
-  (setq file-name-only (file-relative-name buffer-file-name directory-name-only))
-  (setq file-abs-path (file-relative-name buffer-file-name "/"))
-  (kill-new (format "[[/%s][%s]]" file-abs-path file-name-only)))
-
-(defun yank-link-to-current-file-line()
-  (interactive)
-  (setq directory-name-only (file-name-directory buffer-file-name))
-  (setq file-name-only (file-relative-name buffer-file-name directory-name-only))
-  (setq file-abs-path (file-relative-name buffer-file-name "/"))
-  (setq line-number (line-number-at-pos))
-  (kill-new (format "[[/%s::%s][%s]]" file-abs-path line-number file-name-only)))
 
 ;; insert a TODO item due today
 ;; * TODO test123
