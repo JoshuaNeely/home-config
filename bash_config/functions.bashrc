@@ -45,15 +45,6 @@ recall() {
 }
 
 
-docker-login-gc3() {
-  pass is4s/gc3/token | docker login -u josh.neely --password-stdin docker.gc3.io
-}
-
-set-gitlab-pat-env-var() {
-  GITLAB_PAT=$(pass gc3/token)
-}
-
-
 # synchronize a local file to the same directory in a different computer
 # push the local to the remote
 push-file-to-remote-pwd() {

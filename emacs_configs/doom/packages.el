@@ -77,6 +77,8 @@
 
 (package! iedit)
 
+(package! vterm)
+
 ;; import various markdown formats TO org
 ;;(package! org-pandoc-import
 ;;        :recipe (:host github

@@ -75,6 +75,7 @@
 
 
 (load "~/.doom.d/functions/yank.el")
+(load "~/.doom.d/functions/magit.el")
 
 
 ;; insert a TODO item due today
@@ -148,7 +149,19 @@
   (setq current-prefix-arg '(16)) ;; this is the same as =C-u C-u= for some reason
   (call-interactively 'org-time-stamp))
 
-;; makes life easier
+;; (defun sort-headers-by-priority-and-effort ()
+;;   (interactive)
+;;   ;;(defun print-header-name ()
+;;     ;; #(print (org-list-get-tag))
+;;     (let ((el (org-element-at-point)))
+;;      (print (org-element-property :title el))
+;;      (setq result (org-element-property :tags el))
+;;      (print result)
+;;      (print (member 'e1' result)
+;;      )
+;;   ;;(org-map-entries #'print-header-name))
+;;   )
+
 
 (defun new-terminal-buffer ()
   "vterm works 'better' in every way except emacs interoperability.

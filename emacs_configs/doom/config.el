@@ -223,8 +223,8 @@
 
 
 ;; WebDAV + org-mobile
-(setq org-mobile-directory "/home/josh/data/data")
-(setq org-mobile-inbox-for-pull "/home/josh/data/data/inbox-file.org")
+(setq org-mobile-directory (format "/home/%/data/data" user-login-name))
+(setq org-mobile-inbox-for-pull (format "/home/%/data/data/inbox-file.org" user-login-name))
 
 
 ;; todoist integation

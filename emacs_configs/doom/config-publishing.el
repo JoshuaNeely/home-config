@@ -15,7 +15,7 @@
 (setq org-publish-project-alist
       '(
         ("website"
-         :base-directory "/home/josh/org-files/website/"
+         :base-directory (format "/home/%/org-files/website/" user-login-name)
          :base-extension "org"
          :publishing-directory "/mnt/nfs/joshua-neely.com/core_public/"
          :recursive t
@@ -28,7 +28,7 @@
         ;; org-html-publish-to-html transforms inputs as it copies them over.
         ;; It generates html from org, like you'd expect
         ("posts"
-         :base-directory "/home/josh/org-files/"
+         :base-directory (format "/home/%/org-files/" user-login-name)
          :base-extension "org"
          :publishing-directory "/mnt/nfs/joshua-neely.com/blog_public/"
          :recursive t
@@ -41,21 +41,21 @@
         ;; using "org-publish-attachment" simply copies the files to the destination
         ;; this is good for css, js, and images
         ("css-website"
-         :base-directory "/home/josh/org-files/website/css/"
+         :base-directory (format "/home/%/org-files/website/css/" user-login-name)
          :base-extension "css"
          :publishing-directory "/mnt/nfs/joshua-neely.com/core_public/css/"
          :recursive t
          :publishing-function org-publish-attachment)
 
         ("css-blog"
-         :base-directory "/home/josh/org-files/css/"
+         :base-directory (format "/home/%/org-files/css/" user-login-name)
          :base-extension "css"
          :publishing-directory "/mnt/nfs/joshua-neely.com/blog_public/css/"
          :recursive t
          :publishing-function org-publish-attachment)
 
         ("images"
-         :base-directory "/home/josh/org-files/images/"
+         :base-directory (format "/home/%/org-files/images/" user-login-name)
          :base-extension "png\\|jpg\\|gif\\|pdf"
          :publishing-directory "/mnt/nfs/joshua-neely.com/blog_public/images/"
          :recursive t
@@ -97,7 +97,7 @@
   "Search the org directory for files marked with the blog-publish tag and publish those files"
   (interactive)
 
-  (setq input-dir "/home/josh/org-files/" )
+  (setq input-dir (format "/home/%/org-files/" user-login-name) )
 
   (setq all-org-files
         (directory-files-recursively input-dir "\.org$" ))
@@ -123,7 +123,7 @@
 (defun build-sitemap ()
   "Search the org directory for files marked with the blog-publish tag and build a sitemap with links to those files"
   (interactive)
-  (setq input-dir "/home/josh/org-files/" )
+  (setq input-dir (format "/home/%/org-files/" user-login-name) )
   (setq index-file-name "index.org" )
 
   ;; clear publish cache
@@ -150,7 +150,7 @@
       )
     (mapc 'insert-match-into-file matched-files))
 
-  (org-publish-file "/home/josh/org-files/index.org"))
+  (org-publish-file (format "/home/%/org-files/index.org" user-login-name)))
 
 
 (defun publish-css ()
