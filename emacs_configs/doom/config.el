@@ -151,7 +151,6 @@
 ;; somehow this was getting un-set... links were being written in the expanded form
 (setq org-link-descriptive t)
 
-
 (display-time-mode)
 
 ;; customize default emacs font

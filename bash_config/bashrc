@@ -20,3 +20,5 @@ source ~/home-config/bash_config/helm-completion.bashrc
 
 # may need to be disabled prior to dependency installation
 source ~/home-config/bash_config/virtualenvwrapper.bashrc
+
+source ~/home-config/bash_config/is4s.bashrc
