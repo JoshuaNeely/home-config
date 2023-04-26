@@ -68,16 +68,16 @@
 (package! pyvenv)
 (package! direx)
 (package! elpy)  ;; indexing and source searching in python
-;;(package! lsp-mode)
 (package! vue-mode)
+
+
+(package! flycheck :disable t)
 
 (unpin! org-roam company-org-roam)
 (package! websocket)
 (package! org-roam-ui)
 
-(package! iedit)
-
-(package! vterm)
+(package! org-reveal)
 
 ;; import various markdown formats TO org
 ;;(package! org-pandoc-import

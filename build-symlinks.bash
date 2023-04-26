@@ -3,8 +3,8 @@
 CONFIG_DIR=$HOME/home-config
 HOME_DIR=$HOME
 
-BACKUP_DIR=$HOME_DIR/home-config-backup
-mkdir -p $BACKUP_DIR
+#BACKUP_DIR=$HOME_DIR/home-config-backup
+#mkdir -p $BACKUP_DIR
 
 
 symlink_config_file() {
@@ -16,7 +16,7 @@ symlink_config_file() {
         echo "Missing file path!"
     else
         # backup if necessary
-        mv $HOME_DIR/$LINK_NAME $BACKUP_DIR/$BACKUP_NAME 2>/dev/null
+        #mv $HOME_DIR/$LINK_NAME $BACKUP_DIR/$BACKUP_NAME 2>/dev/null
 
         # create a new symlink
         echo "ln -s $CONFIG_DIR/$FILE_NAME $HOME_DIR/$LINK_NAME"
@@ -24,7 +24,7 @@ symlink_config_file() {
     fi
 }
 
-echo "Backing up existing configurations to $BACKUP_DIR"
+#echo "Backing up existing configurations to $BACKUP_DIR"
 echo "Linking home-config/* files to $HOME"
 
 # link directly to home directory

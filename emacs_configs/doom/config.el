@@ -126,6 +126,8 @@
 ;; breaking something after doom upgrade...
 ;;(load "~/.doom.d/config-dired.el")
 
+(load "~/.doom.d/config-python.el")
+
 (load "~/.doom.d/config-flycheck.el")
 
 (load "~/.doom.d/config-lsp.el")
@@ -139,6 +141,11 @@
 (load "~/.doom.d/config-gui.el")
 
 (load "~/.doom.d/config-roam.el")
+
+(load "~/.doom.d/config-ibuffer.el")
+
+;; somehow this was getting un-set... links were being written in the expanded form
+(setq org-link-descriptive t)
 
 
 (display-time-mode)
@@ -223,8 +230,8 @@
 
 
 ;; WebDAV + org-mobile
-(setq org-mobile-directory (format "/home/%/data/data" user-login-name))
-(setq org-mobile-inbox-for-pull (format "/home/%/data/data/inbox-file.org" user-login-name))
+(setq org-mobile-directory (format "/home/%s/data/data" user-login-name))
+(setq org-mobile-inbox-for-pull (format "/home/%s/data/data/inbox-file.org" user-login-name))
 
 
 ;; todoist integation
@@ -259,3 +266,6 @@
 
 (use-package auth-source-pass
   :init (auth-source-pass-enable))
+
+
+(setq org-reveal-root "file:///home/jneely/home-config/org-files/reveal.js")

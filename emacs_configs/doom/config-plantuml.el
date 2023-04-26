@@ -1,5 +1,3 @@
-;;; config-plantuml.el -*- lexical-binding: t; -*-
-
 (setq plantuml-default-exec-mode 'jar)
 ;; wherever it defaults to installing to. Should be local to emacs install.
 ;; see  (plantuml-download-jar)
