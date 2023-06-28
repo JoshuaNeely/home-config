@@ -16,6 +16,7 @@ source ~/home-config/bash_config/kubernetes-kubectl.bashrc
 source ~/home-config/bash_config/gitlab-glab.bashrc
 source ~/home-config/bash_config/node-version-manager.bashrc
 source ~/home-config/bash_config/apps.bashrc
+source ~/home-config/bash_config/helm-completion.bashrc
 
 # may need to be disabled prior to dependency installation
 source ~/home-config/bash_config/virtualenvwrapper.bashrc

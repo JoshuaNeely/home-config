@@ -144,6 +144,10 @@
 
 (load "~/.doom.d/config-ibuffer.el")
 
+(load "~/.doom.d/config-forge.el")
+
+(load "~/.doom.d/config-crypt.el")
+
 ;; somehow this was getting un-set... links were being written in the expanded form
 (setq org-link-descriptive t)
 
