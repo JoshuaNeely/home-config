@@ -29,7 +29,6 @@
 	credentialStore = plaintext
 	helper = /usr/local/bin/git-credential-manager
 
-[credential "https://gitlab.gc3.io"]
-	provider = generic
 [merge]
 	conflictStyle = diff3
+
