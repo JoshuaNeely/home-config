@@ -1,31 +1,3 @@
-" ~~~~~ PLUGIN STUFF ~~~~~
-
-" plugins via Vundle!
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" plugins here
-Plugin 'VundleVim/Vundle.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'airblade/vim-gitgutter'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'prettier/vim-prettier'
-
-" end of plugins here
-call vundle#end()
-filetype plugin indent on
-" :PluginList
-" :PluginInstall
-" :PluginSearch
-" :PluginClean
-
-" refresh faster; good for gitgutter plugin
-set updatetime=250
-
-
 " ~~~~~ UI ~~~~~
 
 " numbered rows
