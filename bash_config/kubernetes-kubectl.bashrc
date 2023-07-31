@@ -23,7 +23,6 @@ kb_switch_cluster()
     kubectl config get-contexts
 }
 
-
 # Copyright 2016 The Kubernetes Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
