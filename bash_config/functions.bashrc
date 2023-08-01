@@ -87,3 +87,16 @@ pull-file-from-remote-pwd() {
 
   scp $USER@$REMOTE:$CURRENT_DIR/$FILE $CURRENT_DIR/$FILE
 }
+
+kill-matching-ps() {
+  if [ $# -eq 0 ] ; then
+    echo "provide a process name match string as an argument"
+    return 0
+  fi
+
+  GREP_MATCH=$1
+
+  echo "deleting these processes: "
+  ps -aux | grep "$GREP_MATCH" | grep -v grep | awk '{ printf "%s ", $2 ; for (i = 11; i <= NF; i++) { printf "%s ", $i } ; print "" }'
+  ps -aux | grep "$GREP_MATCH" | grep -v grep | awk '{ print $2 }' | xargs kill -9
+}
