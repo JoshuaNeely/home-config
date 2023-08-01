@@ -39,7 +39,7 @@ symlink_config_file ".vimrc"
 
 # link with asymetric names/paths
 symlink_config_file "bash_config/bashrc" ".bashrc"
-symlink_config_file "emacs_configs/doom" ".doom.d"
+symlink_config_file "emacs/doom" ".config/doom"
 
 # relies on submodules
 #git submodule
