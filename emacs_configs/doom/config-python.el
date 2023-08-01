@@ -7,9 +7,9 @@
 ;;         (list (lambda ()
 ;;                 (setq python-shell-interpreter "python3"))))
 
-(elpy-enable)
+;; (elpy-enable)
 
-;; disable flyMAKE in favor of the more modern flyCHECK
-(when (load "flycheck" t t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+;; ;; disable flyMAKE in favor of the more modern flyCHECK
+;; (when (load "flycheck" t t)
+;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode))

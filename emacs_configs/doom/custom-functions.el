@@ -74,9 +74,9 @@
     ))
 
 
-(load "~/.doom.d/functions/yank.el")
-(load "~/.doom.d/functions/magit.el")
-(load "~/.doom.d/functions/set-exec-path.el")
+(load "~/.config/doom/functions/yank.el")
+(load "~/.config/doom/functions/magit.el")
+(load "~/.config/doom/functions/set-exec-path.el")
 
 
 ;; insert a TODO item due today

@@ -1,156 +1,60 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
+;; sync' after modifying these files!
 
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(load "~/.config/doom/config-org.el")
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(load "~/.config/doom/config-doom.el")
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(load "~/.config/doom/config-keymapping.el")
 
-;; Here are some additional functions/macros that could help you configure Doom:
-;;
-;; - `load!' for loading external *.el files relative to this one
-;; - `use-package!' for configuring packages
-;; - `after!' for running code after a package has loaded
-;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
-;;   `require' or `use-package'.
-;; - `map!' for binding new keys
-;;
-;; To get information about any of these functions/macros, move the cursor over
-;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
-;; This will open documentation for it, including demos of how they are used.
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
+(load "~/.config/doom/config-agenda.el")
 
-(setq org-directory "~/org-files/")
-(setq org-roam-directory "~/org-files/")
+(load "~/.config/doom/config-rss.el")
 
-;; setting up org-roam-ui
-;; https://github.com/org-roam/org-roam-ui
-(use-package! websocket
- :after org-roam)
+(load "~/.config/doom/custom-functions.el")
 
-(use-package! org-roam-ui
-   :after org ;; or :after org
-        ;; normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-        ;; a hookable mode anymore, you're advised to pick something yourself
-        ;; if you don't care about startup time, use
- ;; :hook (after-init . org-roam-ui-mode)
-   :config
-   (setq org-roam-ui-sync-theme t
-         org-roam-ui-follow t
-         org-roam-ui-update-on-save t
-         org-roam-ui-open-on-start t))
+(load "~/.config/doom/config-publishing.el")
 
+(load "~/.config/doom/config-ctags.el")
+(load "~/.config/doom/config-clock.el")
 
-(after! org
-  (setq org-agenda-files '("~/org-files/task_inbox.org" "~/org-files/task_inbox_work.org" "~/org-files/calendar.org"))
-  (setq org-roam-server-host "0.0.0.0")
-  (setq +org-roam-open-buffer-on-find-file nil)
-)
+(load "~/.config/doom/config-archival.el")
 
-
-;; used when exporting org files to html, latex, etc
-(setq user-full-name "Joshua Neely")
-
-;; right align tags
-;; doesn't appear to be a simple way to get the LAST column; it's just... some arbitrary number
-;; the negative makes it right-flush (vs left-flush by default) with the column
-(setq org-tags-column 0)
-
-;; use only both ROAM_TAGS (prop) for roam file searches
-;; ( I use vanilla FILETAGS for agenda classification of TODOs, NOT for file tagging )
-(setq org-roam-tag-sources '(prop))
-
-
-;; creates a timestamp when closing a TO-DO
-;; remove a redundant copy on transition state
-;; this USED to work woth 'note but it broke out of the blue for some reason.
-(setq org-log-done 'time)
-(setq org-log-done-with-time 'nil)
-
-;; this is an org mode hook- this means that this function (the lambda) is run after org mode is turned on
-;; the function itself registers another hook, which links saving to tangling
-;; Why? If we are editing something other than an .org file, this hook will not execute. Good!
-;; I might be able to refine this some more, to check for a :blog tag or a :tangle tag or something
-;; Not everything needs tangling...
-;;
-;; Why tangle?
-;; Basically you are exporting an org file, which has both source code and prose documentation into other formats.
-;; All of the code can be collected together into a source file. eg generate a bashscript file, or a .py file.
-;; You can also export things like pdfs or pretty html, useful if this were a blog or similar.
-(add-hook 'org-mode-hook
-  (lambda () (add-hook 'after-save-hook #'org-babel-tangle
-    :append :local)))
-
-
-(load "~/.doom.d/config-keymapping.el")
-
-(load "~/.doom.d/config-agenda.el")
-
-(load "~/.doom.d/config-rss.el")
-
-(load "~/.doom.d/custom-functions.el")
-
-(load "~/.doom.d/config-publishing.el")
-
-(load "~/.doom.d/config-ctags.el")
-
-(load "~/.doom.d/config-clock.el")
-
-(load "~/.doom.d/config-archival.el")
-
-(load "~/.doom.d/config-popups.el")
+(load "~/.config/doom/config-popups.el")
 
 ;; breaking something after doom upgrade...
-;;(load "~/.doom.d/config-dired.el")
+;;(load "~/.config/doom/config-dired.el")
 
-(load "~/.doom.d/config-python.el")
+(load "~/.config/doom/config-python.el")
 
-(load "~/.doom.d/config-flycheck.el")
+(load "~/.config/doom/config-flycheck.el")
 
-(load "~/.doom.d/config-lsp.el")
+(load "~/.config/doom/config-lsp.el")
 
-(load "~/.doom.d/config-uniquify.el")
+(load "~/.config/doom/config-uniquify.el")
 
-(load "~/.doom.d/config-wsl.el")
+(load "~/.config/doom/config-wsl.el")
 
-(load "~/.doom.d/config-plantuml.el")
+(load "~/.config/doom/config-plantuml.el")
 
-(load "~/.doom.d/config-gui.el")
+(load "~/.config/doom/config-gui.el")
 
-(load "~/.doom.d/config-roam.el")
+(load "~/.config/doom/config-roam.el")
 
-(load "~/.doom.d/config-ibuffer.el")
+(load "~/.config/doom/config-ibuffer.el")
 
-(load "~/.doom.d/config-forge.el")
+(load "~/.config/doom/config-forge.el")
 
-(load "~/.doom.d/config-crypt.el")
+(load "~/.config/doom/config-crypt.el")
 
-;;(load "~/.doom.d/config-d2.el")
+;;(load "~/.config/doom/config-d2.el")
 
-;;(load "~/.doom.d/config-deck.el")
+;;(load "~/.config/doom/config-deck.el")
+
+(load "~/.config/doom/config-general.el")
 
 ;; somehow this was getting un-set... links were being written in the expanded form
 (setq org-link-descriptive t)
@@ -225,11 +129,6 @@
 ;;(add-to-list 'eshell-modules-list 'eshell-tramp)
 
 
-(setq evil-shift-width 2)
-
-;; visual line wrap
-(visual-line-mode t)
-(toggle-truncate-lines nil)
 
 
 ;; open help buffers in permanent windows
@@ -250,22 +149,6 @@
 ;; i think i may prefer using the topmost link of the splash screen
 
 
-;; doom dashboard config
-(setq +doom-dashboard-menu-sections
-  '(("Open Task Inbox"
-     :face (:inherit (doom-dashboard-menu-title bold))
-     :action open-task-inbox)
-    ("Open Work Task Inbox"
-     :face (:inherit (doom-dashboard-menu-title bold))
-     :action open-work-task-inbox)
-    ("Recently opened files"
-     :action recentf-open-files)
-    ("Open private configuration"
-     :when (file-directory-p doom-private-dir)
-     :action doom/open-private-config)
-    ("Open documentation"
-     :icon (all-the-icons-octicon "book" :face 'doom-dashboard-menu-title)
-     :action doom/help)))
 
 ;;(use-package! org-pandoc-import :after org)
 ;;(use-package! ox-pandoc :after org)
