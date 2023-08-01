@@ -50,34 +50,36 @@
 ;(unpin! t)
 
 
-(package! ox-jira)
-(package! copy-as-format)
-(package! org-super-agenda)
-(package! ox-reveal)
-(package! windresize)
-(package! org-ql)
-(package! scad-mode)
-(package! platformio-mode)
-(package! yaml-mode)
-(package! dockerfile-mode)
-(package! docker-tramp)
-(package! tide)
-(package! todoist)
-(package! esup)
-(package! swig-mode)
-(package! pyvenv)
-(package! direx)
-(package! elpy)  ;; indexing and source searching in python
-(package! vue-mode)
+
+;; (package! ox-jira)
+;; (package! copy-as-format)
+;; (package! org-super-agenda)
+;; (package! ox-reveal)
+;; (package! windresize)
+;; (package! org-ql)
+;; (package! scad-mode)
+;; (package! platformio-mode)
+;; (package! yaml-mode)
+;; (package! dockerfile-mode)
+;; (package! docker-tramp)
+;; (package! tide)
+;; (package! todoist)
+;; (package! esup)
+;; (package! swig-mode)
+;; (package! pyvenv)
+;; (package! direx)
+;; (package! elpy)  ;; indexing and source searching in python
+;; (package! vue-mode)
 
 
-(package! flycheck :disable t)
+;; (package! flycheck :disable t)
 
-(unpin! org-roam company-org-roam)
-(package! websocket)
-(package! org-roam-ui)
+;; (unpin! org-roam company-org-roam)
+;; (package! websocket)
+;; (package! org-roam-ui)
 
-(package! org-reveal)
+;; (package! org-reveal)
+;;
 
 ;; import various markdown formats TO org
 ;;(package! org-pandoc-import
