@@ -30,3 +30,40 @@
 ;; (add-hook 'org-mode-hook
 ;;   (lambda () (add-hook 'after-save-hook #'org-babel-tangle
 ;;     :append :local)))
+
+
+;; remove a bunch of useless TODO items you have by default
+;; info on syntax and stuff https://orgmode.org/manual/Workflow-states.html#Workflow-states
+;; seems that maybe agenda was squashing this? I moved it below the agenda loading
+(setq org-todo-keywords
+   '((sequence "TODO(t)" "|" "DONE(d)" "CANCELLED(c)")
+     (sequence "[ ](T)" "|" "[X](D)" "[-](C)"))
+   )
+
+
+;; allow individually-hidden code blocks on file-open
+;; (instead of hiding or showing all of them)
+(defun individual-visibility-source-blocks ()
+  "Fold some blocks in the current buffer."
+  (interactive)
+  (org-show-block-all)
+  (org-block-map
+   (lambda ()
+     (let ((case-fold-search t))
+       (when (and
+              (save-excursion
+                (beginning-of-line 1)
+                (looking-at org-block-regexp))
+              (cl-assoc
+               ':hidden
+               (cl-third
+                (org-babel-get-src-block-info))))
+         (org-hide-block-toggle))))))
+
+(add-hook
+ 'org-mode-hook
+ (function individual-visibility-source-blocks))
+
+
+;;(use-package! org-pandoc-import :after org)
+;;(use-package! ox-pandoc :after org)

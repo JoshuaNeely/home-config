@@ -10,3 +10,14 @@
 (toggle-truncate-lines nil)
 
 (display-time-mode)
+
+
+;; customize default emacs font
+;; only relevant for the GUI?
+(add-to-list 'default-frame-alist
+             '(font . "DejaVu Sans Mono-12"))
+
+
+;; open help buffers in permanent windows
+;; did help buffers change naming conventions? doesn't seem to work
+;; (add-to-list 'display-buffer-alist '("*Help*" display-buffer-same-window))

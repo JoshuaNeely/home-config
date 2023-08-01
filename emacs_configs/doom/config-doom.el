@@ -55,3 +55,10 @@
     ("Open documentation"
      :icon (all-the-icons-octicon "book" :face 'doom-dashboard-menu-title)
      :action doom/help)))
+
+
+(setq doom-modeline-buffer-file-name-style 'file-name)
+;; see https://github.com/seagle0128/doom-modeline
+(setq doom-modeline-major-mode-color-icon nil)
+(setq doom-modeline-unicode-fallback t)
+(setq doom-modeline-buffer-encoding nil)
