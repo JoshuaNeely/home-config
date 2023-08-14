@@ -10,7 +10,7 @@
 
 (load "~/.config/doom/config-keymapping.el")
 
-(load "~/.config/doom/config-agenda.el")
+;;(load "~/.config/doom/config-agenda.el")
 
 (load "~/.config/doom/config-rss.el")
 
@@ -63,6 +63,8 @@
 (load "~/.config/doom/config-ditaa.el")
 
 (load "~/.config/doom/config-eshell.el")
+
+(load "~/.config/doom/config-auto-completion.el")
 
 (load "~/.config/doom/config-general.el")
 
