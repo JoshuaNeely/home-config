@@ -1,4 +1,28 @@
+# Note that you lose command completion if you use this alias
+# Useful for terse commands. Less useful for "searching" around existing resources, where you would benefit from completion
 alias kb=kubectl
+
+kb_info()
+{
+    kubectl config get-contexts
+}
+
+kb_switch_namespace()
+{
+    # namespace is stored in ~/.kube/config, on the current context, in the "namespace" key
+    NAMESPACE=$1
+    kubectl config set-context --current --namespace=${NAMESPACE:?missing}
+    kubectl config get-contexts
+}
+
+kb_switch_cluster()
+{
+    # current cluster is stored in ~/.kube/config, on the top level "current-context" key
+    CLUSTER=$1
+    kubectl config use-context ${CLUSTER:?missing}
+    kubectl config get-contexts
+}
+
 
 # Copyright 2016 The Kubernetes Authors.
 #

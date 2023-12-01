@@ -1,6 +1,10 @@
 ;;; ../../home-config/emacs_configs/doom/config-org.el -*- lexical-binding: t; -*-
 
 
+;; we have to wrap all our configurations in an "after" block to avoid doom's own defaults overwriting ours
+;; https://github.com/doomemacs/doomemacs/issues/2913
+(after! org
+
 ;; used when exporting org files to html, latex, etc
 (setq user-full-name "Joshua Neely")
 
@@ -67,3 +71,6 @@
 
 ;;(use-package! org-pandoc-import :after org)
 ;;(use-package! ox-pandoc :after org)
+
+
+)

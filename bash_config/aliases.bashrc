@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias ls='ls --color=auto'
+alias ls='ls --almost-all --color=auto'
 alias grep='grep --color=auto'
 alias gs='git status'
 
@@ -15,3 +15,7 @@ alias emacsclient="emacsclient -nw"
 alias open="xdg-open"
 
 alias ssh="ssh -C -X"
+
+rbi() {
+    echo "you probably meant 'irb'"
+}

@@ -1,6 +1,10 @@
 ;; this file should be imported by config.el
 ;; just a nice way to split off some related config that is likely to grow independant of the main config
 
+
+;; check out the custom agenda functions in ./functions/agenda.el
+
+
 (let* (
        (one-day-seconds (time-add nil (* 3600 24)))
        (one-day-seconds (time-add nil (* 3600 24)))

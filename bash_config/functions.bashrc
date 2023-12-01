@@ -100,3 +100,10 @@ kill-matching-ps() {
   ps -aux | grep "$GREP_MATCH" | grep -v grep | awk '{ printf "%s ", $2 ; for (i = 11; i <= NF; i++) { printf "%s ", $i } ; print "" }'
   ps -aux | grep "$GREP_MATCH" | grep -v grep | awk '{ print $2 }' | xargs kill -9
 }
+
+
+# this is intended to target a k3s deploymed I set up, with a dashboard and admin user configured
+# you could probably use it for other kubernetes deployments with the appropriate users set up
+copy-dashboard-token-to-clipboard() {
+    kubectl -n kubernetes-dashboard create token admin-user | xclip -selection clipboard
+}

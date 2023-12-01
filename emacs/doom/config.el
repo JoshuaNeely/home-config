@@ -68,6 +68,9 @@
 
 (load "~/.config/doom/config-general.el")
 
+(load "~/.config/doom/config-vertico.el")
+(load "~/.config/doom/config-marginalia.el")
+
 
 
 ;; somehow this was getting un-set... links were being written in the expanded form

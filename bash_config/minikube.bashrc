@@ -24,7 +24,7 @@ function minikube-start-custom() {
         --insecure-registry "10.0.0.0/24" \
         --cpus=max \
         --memory=max \
-        --addons=dashboard \
-        --addons=registry \
-        --addons=ingress
+        --addons=dashboard
+        #--addons=registry \
+        #--addons=ingress
 }

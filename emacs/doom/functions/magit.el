@@ -15,3 +15,4 @@
   ))
 
 (advice-add 'magit-log-other :override 'magit-log-other--custom)
+
