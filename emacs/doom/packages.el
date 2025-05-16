@@ -71,7 +71,6 @@
 ;; (package! elpy)  ;; indexing and source searching in python
 ;; (package! vue-mode)
 
-
 ;; (package! flycheck :disable t)
 
 ;; (unpin! org-roam company-org-roam)

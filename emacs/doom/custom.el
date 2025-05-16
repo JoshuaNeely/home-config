@@ -5,7 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(auth-source-save-behavior nil)
  '(custom-safe-themes
-   '("835868dcd17131ba8b9619d14c67c127aa18b90a82438c8613586331129dda63" "1704976a1797342a1b4ea7a75bdbb3be1569f4619134341bd5a4c1cfb16abad4" default))
+   '("835868dcd17131ba8b9619d14c67c127aa18b90a82438c8613586331129dda63"
+     "1704976a1797342a1b4ea7a75bdbb3be1569f4619134341bd5a4c1cfb16abad4" default))
  '(js-indent-level 4)
  '(marginalia-annotator-registry
    '((command marginalia-annotate-command marginalia-annotate-binding builtin none)
@@ -27,21 +28,24 @@
      (bookmark marginalia-annotate-bookmark builtin none)
      (file marginalia-annotate-file builtin none)
      (project-file marginalia-annotate-project-file builtin none)
-     (buffer marginalia-josh-annotate-buffer marginalia-annotate-buffer builtin none)
+     (buffer marginalia-josh-annotate-buffer marginalia-annotate-buffer builtin
+      none)
      (library marginalia-annotate-library builtin none)
      (tab marginalia-annotate-tab builtin none)
      (multi-category marginalia-annotate-multi-category builtin none)))
  '(package-selected-packages
-   '(copy-as-format ox-jira edit-server org-jira org-roam-server simple-httpd org-journal))
+   '(copy-as-format ox-jira edit-server org-jira org-roam-server simple-httpd
+     org-journal))
  '(safe-local-variable-values
-   '((eval org-update-all-dblocks)
-     (org-confirm-babel-evaluate)
+   '((eval setq-local org-roam-db-location
+      (expand-file-name "org-roam.db" org-roam-directory))
+     (eval setq-local org-roam-directory
+      (locate-dominating-file default-directory ".dir-locals.el"))
+     (eval org-update-all-dblocks) (org-confirm-babel-evaluate)
      (eval org-clock-in)))
  '(send-mail-function 'sendmail-send-it)
  '(vertico-buffer-display-action
-   '(display-buffer-in-direction
-     (direction . below)
-     (window-height . 20)))
+   '(display-buffer-in-direction (direction . below) (window-height . 20)))
  '(warning-suppress-log-types '((org-element-cache) (defvaralias)))
  '(warning-suppress-types '((org-element-cache) (defvaralias))))
 (custom-set-faces

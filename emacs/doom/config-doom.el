@@ -20,7 +20,6 @@
 (setq doom-theme 'doom-one)
 
 
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -46,15 +45,7 @@
      :action open-task-inbox)
     ("Open Work Task Inbox"
      :face (:inherit (doom-dashboard-menu-title bold))
-     :action open-work-task-inbox)
-    ("Recently opened files"
-     :action recentf-open-files)
-    ("Open private configuration"
-     :when (file-directory-p doom-private-dir)
-     :action doom/open-private-config)
-    ("Open documentation"
-     :icon (all-the-icons-octicon "book" :face 'doom-dashboard-menu-title)
-     :action doom/help)))
+     :action open-work-task-inbox)))
 
 
 (setq doom-modeline-buffer-file-name-style 'file-name)
