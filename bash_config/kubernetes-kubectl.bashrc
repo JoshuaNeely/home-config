@@ -1,3 +1,4 @@
+alias kb=kubectl
 
 # Copyright 2016 The Kubernetes Authors.
 #

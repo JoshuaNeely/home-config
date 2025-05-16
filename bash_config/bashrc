@@ -1,5 +1,9 @@
 # symlink this file to ~/.bashrc
 
+# may need to be disabled prior to dependency installation
+source ~/home-config/bash_config/virtualenvwrapper.bashrc
+source ~/home-config/bash_config/helm-completion.bashrc
+
 # ~~~~~~~~~~~~ distributed config
 source ~/home-config/bash_config/ubuntu-defaults.bashrc
 source ~/home-config/bash_config/aliases.bashrc
@@ -17,11 +21,24 @@ source ~/home-config/bash_config/gitlab-glab.bashrc
 source ~/home-config/bash_config/node-version-manager.bashrc
 source ~/home-config/bash_config/apps.bashrc
 
-# may need to be disabled prior to dependency installation
-source ~/home-config/bash_config/virtualenvwrapper.bashrc
-source ~/home-config/bash_config/helm-completion.bashrc
+# find every nested .bashrc file and source them all
+# exclude files by making a match for them that does nothing
+# enables ease in deploying new bashrc files without maintaining a separate index here
 
-# may need to be disabled prior to dependency installation
-source ~/home-config/bash_config/virtualenvwrapper.bashrc
+CONFIG_DIRECTORY=~/home-config/bash_config
+for BASHRC_FILE in $CONFIG_DIRECTORY/*; do
+    case $BASHRC_FILE in
+        # always skip bashrc. We don't want recursion
+        $CONFIG_DIRECTORY/bashrc  )  ;;
 
-source ~/home-config/bash_config/is4s.bashrc
+        # skip these by default... enable if dependencies are met
+        $CONFIG_DIRECTORY/ruby.bashrc )  ;;
+        $CONFIG_DIRECTORY/npm.bashrc )   ;;
+        # $CONFIG_DIRECTORY/is4s.bashrc )   ;;
+
+        # source all matches that remain
+        $CONFIG_DIRECTORY/*.bashrc ) source $BASHRC_FILE ;;
+
+        * ) echo "ERROR: Unmatched '$BASHRC_FILE'" ;;
+    esac
+done

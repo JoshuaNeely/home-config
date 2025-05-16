@@ -4,6 +4,7 @@
 ;; I find a selection much easier and faster to use, and never have a need to select multple refs anyway.
 (defun magit-log-other--custom ()
   "Display the log of a specified branch."
+  (interactive)
   (let* (
     (user-prompt "Show commit log for")
     (branch (magit-read-local-branch-or-ref user-prompt))

@@ -2,4 +2,6 @@
 set -o vi
 
 
-export EDITOR=/snap/bin/emacs
+export ALTERNATE_EDITOR=""
+export EDITOR="emacsclient -c"
+export VISUAL="emacsclient -c -a emacs"

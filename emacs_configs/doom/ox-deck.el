@@ -76,7 +76,7 @@
   :tag "Org Export DECK"
   :group 'org-export-html)
 
-(defcustom org-deck-directories '("/home/jneely/git/sandbox/deck.js/deck.js")
+(defcustom org-deck-directories '("/home/jneely/org-files/presentations/ruby-on-rails/deck.js")
   "Directories to search for deck.js components (jquery,
 modernizr; core, extensions and themes directories.)"
   :group 'org-export-deck
@@ -143,7 +143,7 @@ Can be overriden or set with the DECK_EXCLUDE_EXTENSIONS property."
   :group 'org-export-deck
   :type '(repeat (string :tag "Extension")))
 
-(defcustom org-deck-theme "web-2.0.css"
+(defcustom org-deck-theme "josh.css"
   "deck.js theme. Can be overriden with the DECK_THEME property.
 If this value contains a path component (\"/\"), it is used as a
 literal path (url). Otherwise it is prepended with
@@ -174,7 +174,7 @@ Can be overriden with the DECK_BASE_URL property."
   "Alist of css styles for the preamble, postamble and both respectively.
 Can be overriden in `org-deck-styles'. See also `org-html-divs'.")
 
-(defcustom org-deck-postamble "<h1>%a - %t</h1>"
+(defcustom org-deck-postamble nil
   "Non-nil means insert a postamble in HTML export.
 
 When set to a string, use this string
@@ -237,7 +237,7 @@ is automatically added to avoid both numbers and bullets on the toc entries.")
 
 (defcustom org-deck-styles
   "
-#title-slide h1 {
+#title-slide .title {
     position: static; padding: 0;
     margin-top: 10%;
     -webkit-transform: none;
@@ -246,7 +246,7 @@ is automatically added to avoid both numbers and bullets on the toc entries.")
     -o-transform: none;
     transform: none;
 }
-#title-slide h2 {
+#title-slide :is(h2, h3, h4, h5) {
     text-align: center;
     border:none;
     padding: 0;
@@ -258,10 +258,11 @@ Defaults to styles for the title page."
   :type 'string)
 
 (defcustom org-deck-title-slide-template
-  "<h1>%t</h1>
-<h2>%a</h2>
-<h2>%e</h2>
-<h2>%d</h2>"
+  "<h1 class='title'>%t</h1>
+<h2 class='subtitle'>%s</h2>
+<h2 class='author'>%a</h2>
+<h3 class='email'>%e</h3>
+<h3 class='modifydate'>%C</h3>"
   "Format template to specify title page section.
 See `org-html-postamble-format' for the valid elements which
 can be included.

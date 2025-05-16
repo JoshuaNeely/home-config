@@ -148,6 +148,10 @@
 
 (load "~/.doom.d/config-crypt.el")
 
+;;(load "~/.doom.d/config-d2.el")
+
+;;(load "~/.doom.d/config-deck.el")
+
 ;; somehow this was getting un-set... links were being written in the expanded form
 (setq org-link-descriptive t)
 
