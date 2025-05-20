@@ -235,7 +235,7 @@
 (defun open-work-task-inbox ()
   "Open my ongoing tasks inbox. Combine with archiving workflow."
   (interactive)
-  (let ((inboxdir (format "/home/%s/org-files/task_inbox_work.org" user-login-name)))
+  (let ((inboxdir (format "/home/%s/org-files/is4s/task_inbox_work.org" user-login-name)))
         (find-file inboxdir)))
 
 
