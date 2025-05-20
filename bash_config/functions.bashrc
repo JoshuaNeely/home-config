@@ -105,5 +105,10 @@ kill-matching-ps() {
 # this is intended to target a k3s deploymed I set up, with a dashboard and admin user configured
 # you could probably use it for other kubernetes deployments with the appropriate users set up
 copy-dashboard-token-to-clipboard() {
-    kubectl -n kubernetes-dashboard create token admin-user | xclip -selection clipboard
+  kubectl -n kubernetes-dashboard create token admin-user | xclip -selection clipboard
+}
+
+alias copy=copy-clipboard
+copy-clipboard() {
+  xclip -selection clipboard
 }
