@@ -1,0 +1,8 @@
+#--simulate # disable when ready to make changes
+
+--verbose
+--dotfiles # translate dir "dot-xyz" to target ".xyz"
+
+--dir $HOME/stow
+--target $HOME
+

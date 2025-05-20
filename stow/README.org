@@ -1,0 +1,9 @@
+#+title: Readme
+
+Stow is used to sync the contents of this directory with the $HOME dir using symlinks.
+
+This command is used to build symlinks.
+: stow --verbose --dotfiles --dir $HOME/stow --target $HOME .
+
+A .stowrc is included in this syncing. This more simple command should be possible after .stowrc is in place.
+: stow .
