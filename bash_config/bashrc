@@ -1,26 +1,5 @@
 # symlink this file to ~/.bashrc
 
-# may need to be disabled prior to dependency installation
-source ~/home-config/bash_config/virtualenvwrapper.bashrc
-source ~/home-config/bash_config/helm-completion.bashrc
-
-# ~~~~~~~~~~~~ distributed config
-source ~/home-config/bash_config/ubuntu-defaults.bashrc
-source ~/home-config/bash_config/aliases.bashrc
-source ~/home-config/bash_config/vim.bashrc
-source ~/home-config/bash_config/PS1.bashrc
-source ~/home-config/bash_config/PATH.bashrc
-source ~/home-config/bash_config/history.bashrc
-source ~/home-config/bash_config/misc.bashrc
-source ~/home-config/bash_config/functions.bashrc
-source ~/home-config/bash_config/colors.bashrc
-source ~/home-config/bash_config/openshift-oc.bashrc
-source ~/home-config/bash_config/openshift-crc.bashrc
-source ~/home-config/bash_config/kubernetes-kubectl.bashrc
-source ~/home-config/bash_config/gitlab-glab.bashrc
-source ~/home-config/bash_config/node-version-manager.bashrc
-source ~/home-config/bash_config/apps.bashrc
-
 # find every nested .bashrc file and source them all
 # exclude files by making a match for them that does nothing
 # enables ease in deploying new bashrc files without maintaining a separate index here
