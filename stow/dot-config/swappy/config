@@ -1,0 +1,15 @@
+[Default]
+# this is where the GUI save button will write to
+save_dir=/tmp
+# file name the GUI save button will write
+#save_filename_format=%F_%T.png
+save_filename_format=blah.png
+# --output-file is an ADDITIONAL save that happens, if you don't hit the GUI save
+show_panel=true
+line_size=5
+text_size=20
+text_font=sans-serif
+paint_mode=brush
+# seems to inhibit --output-file
+early_exit=false
+fill_shape=false

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+OUTPUT=${1:-"/tmp/$(date +%F_%T).png"}
+if [[ -z $OUTPUT ]]
+then
+    echo "USAGE: screenshot --output-file FILEPATH"
+    exit 1
+else
+    grim -g "$(slurp)" - | swappy -f - --output-file $OUTPUT
+    notify-send "writing screenshot ${OUTPUT}"
+fi
