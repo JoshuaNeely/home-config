@@ -267,6 +267,11 @@ window#waybar {
     border-bottom-color: @disk-color;
 }
 
+#custom-nvidia {
+    color: @blue;
+    border-bottom-color: @red;
+}
+
 #custom-uptime {
     color: @uptime-color;
     border-bottom-color: @uptime-color;

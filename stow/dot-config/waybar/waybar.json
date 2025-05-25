@@ -1,59 +1,34 @@
-// this file is JSON!
 {
   "layer": "top",
   "position": "top",
-  "height": 25,
+  "height": 30,
   "margin-left": 4,
   "margin-right": 4,
   "margin-top": 4,
   "margin-bottom": 0,
-  "spacing": 1,
+  "spacing": 3,
   "reload_style_on_change": true,
 
-  // Choose the order of the modules
 
-  //"modules-left": ["hyprland/workspaces", "river/tags", "tray"],
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
 
   //"modules-center": ["clock"],
 
   "modules-right": [
     "idle_inhibitor",
-    "group/custom-group",
+    "custom/notification",
     "custom/separator",
     "cpu",
     "memory",
     "disk",
+    "custom/nvidia",
     "network",
-    "temperature",
-    "backlight",
     "wireplumber",
     "clock",
   ],
 
-      // "idle_inhibitor",
-      // "custom/bluetooth",
-      // "custom/kdeconnect",
-      // "custom/wifi",
-      // "custom/power"
-  "group/custom-group": {
-    "orientation": "horizontal",
-    "modules": [
-      "custom/josh",
-    ],
-  },
-
-  // Modules configuration
-  "river/tags": {
-    "num-tags": 7,
-    "tag-labels": ["󰈹", "", "", "", "", "", "󰠮", "", "", ""],
-  },
-
-  "tray": {
-    "icon-size": 16,
-    "spacing": 5,
-    "show-passive-items": true,
-  },
 
   "clock": {
     "interval": 60,
@@ -75,23 +50,26 @@
 
   "cpu": {
     "interval": 2,
-    "format": " {usage:>2}%",
+    "format": "CPU {usage:>2}%",
     "on-click": "hyprctl dispatcher togglespecialworkspace monitor",
   },
 
   "memory": {
     "interval": 2,
-    "format": " {:>2}%",
+    "format": "RAM {:>2}%",
   },
 
   "disk": {
     "interval": 15,
-    "format": "󰋊 {percentage_used:>2}%",
+    "format": "DISK {percentage_used:>2}%",
   },
 
-  "backlight": {
-    // "device": "acpi_video1",
-    "format": "{icon} {percent:>2}%",
+  "custom/nvidia": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "format": "GPU {icon} {:>2}%",
+    "interval": 2,
+    "on-click": "kitty nvtop",
+
     "format-icons": ["", "", "", "", "", "", "", "", ""],
   },
 
@@ -134,99 +112,12 @@
     "format-icons": ["", "", ""],
   },
 
-  // This waybar build doesn't have support for cava.
-  // Need to edit the PKGBUILD and rebuild with -Dcava=enabled flag
-  "cava": {
-    "cava_config": "$XDG_CONFIG_HOME/cava/config",
-    "framerate": 30,
-    "autosens": 1,
-    "sensitivity": 100,
-    "bars": 14,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "method": "pulse",
-    "source": "auto",
-    "stereo": true,
-    "reverse": false,
-    "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": false,
-    "noise_reduction": 0.77,
-    "input_delay": 2,
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "actions": {
-      "on-click-right": "mode",
-    },
-  },
-
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15,
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon} {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""],
-  },
-
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "󰈈",
       "deactivated": "󰈉",
     },
-  },
-
-  "custom/power": {
-    "format": "{icon}",
-    "format-icons": "", //  
-    "exec-on-event": "true",
-    "on-click": "$HOME/scripts/rofi-power",
-    "tooltip-format": "Power Menu",
-  },
-
-  "custom/kdeconnect": {
-    "format": "{icon}",
-    "format-icons": "",
-    "exec-on-event": "true",
-    "on-click": "kdeconnect-app",
-    "tooltip-format": "KDE Connect",
-  },
-
-  "custom/bluetooth": {
-    "format": "{icon}",
-    "format-icons": "",
-    "exec-on-event": "true",
-    "on-click": "$HOME/scripts/rofi-bluetooth",
-    "tooltip-format": "Bluetooth Menu",
-  },
-
-  "custom/wifi": {
-    "format": "{icon}",
-    "format-icons": "",
-    "exec-on-event": "true",
-    "on-click": "$HOME/scripts/rofi-wifi",
-    "tooltip-format": "Wifi Menu",
-  },
-
-  "custom/separator": {
-    "format": "{icon}",
-    "format-icons": "  ",
-    "tooltip": false,
-  },
-
-  "custom/pacman": {
-    "format": "  {}",
-    "interval": 3600, // every hour
-    "exec": "checkupdates | wc -l", // # of updates
-    "exec-if": "exit 0", // always run; consider advanced run conditions
-    "on-click": "foot -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar", // update system
-    "signal": 8,
   },
 
   "custom/notification": {
