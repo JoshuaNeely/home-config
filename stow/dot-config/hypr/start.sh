@@ -9,7 +9,8 @@ nm-applet --indicator &
 
 waybar -c ~/.config/waybar/waybar.json &
 
-dunst &
+#dunst -c ~/.config/dunst/dunstrc & # dunst stucks!
+swaync --config ~/.config/swaync/config.json &
 
 udiskie &
 
