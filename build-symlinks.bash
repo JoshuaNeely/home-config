@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO remove this file in favor of using stow
+
 CONFIG_DIR=$HOME/home-config
 HOME_DIR=$HOME
 
