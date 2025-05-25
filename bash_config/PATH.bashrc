@@ -1,10 +1,11 @@
 export PATH=\
-/home/jneely/.rbenv/shims:\
-/home/jneely/git/sandbox/rbenv/bin:\
-/home/jneely/.local/bin:\
-/home/jneely/local/bin:\
-/home/jneely/bin:\
-/home/jneely/.nvm/versions/node/v19.8.1/bin:\
+$PATH:\
+/home/$USER/.rbenv/shims:\
+/home/$USER/git/sandbox/rbenv/bin:\
+/home/$USER/.local/bin:\
+/home/$USER/local/bin:\
+/home/$USER/bin:\
+/home/$USER/.nvm/versions/node/v19.8.1/bin:\
 /usr/local/sbin:\
 /usr/local/bin:\
 /usr/sbin:\
@@ -12,9 +13,9 @@ export PATH=\
 /sbin:\
 /bin:\
 /snap/bin:\
-/opt/fzf/bin
-
-export PATH="/home/$USER/.config/emacs/bin/:$PATH"
+/opt/fzf/bin:\
+/home/$USER/home-config/scripts:\
+/home/$USER/.config/emacs/bin/:$PATH
 
 #export PATH=/snap/bin:$PATH
 #export PATH=$HOME/bin:$PATH
