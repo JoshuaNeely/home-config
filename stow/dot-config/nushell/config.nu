@@ -2,6 +2,8 @@
 #
 # version = "0.100.0"
 
+$env.path ++= ["~/home-config/scripts"]
+
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
 # And here is the theme collection
@@ -147,7 +149,7 @@ let light_theme = {
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
-    show_banner: true # true or false to enable or disable the welcome banner at startup
+    show_banner: false # false or false to enable or disable the welcome banner at startup
 
     ls: {
         use_ls_colors: true # use the LS_COLORS environment variable to colorize output
@@ -214,7 +216,7 @@ $env.config = {
         case_sensitive: false # set to true to enable case-sensitive completions
         quick: true    # set this to false to prevent auto-selecting completions when only one remains
         partial: true    # set this to false to prevent partial filling of the prompt
-        algorithm: "prefix"    # prefix or fuzzy
+        algorithm: "fuzzy"    # prefix or fuzzy
         sort: "smart" # "smart" (alphabetical for prefix matching, fuzzy score for fuzzy matching) or "alphabetical"
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
@@ -241,7 +243,7 @@ $env.config = {
     buffer_editor: null # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.VISUAL and $env.EDITOR
     use_ansi_coloring: true
     bracketed_paste: true # enable bracketed paste, currently useless on windows
-    edit_mode: emacs # emacs, vi
+    edit_mode: vi # emacs, vi
     shell_integration: {
         # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title
         osc2: true
@@ -647,7 +649,7 @@ $env.config = {
             name: delete_one_character_backward
             modifier: none
             keycode: backspace
-            mode: [emacs, vi_insert]
+            mode: [emacs, vi_insert, vi_normal]
             event: { edit: backspace }
         }
         {
@@ -684,13 +686,6 @@ $env.config = {
             keycode: char_w
             mode: [emacs, vi_insert]
             event: { edit: backspaceword }
-        }
-        {
-            name: move_left
-            modifier: none
-            keycode: backspace
-            mode: vi_normal
-            event: { edit: moveleft }
         }
         {
             name: newline_or_run_command
@@ -867,25 +862,25 @@ $env.config = {
         # using the internal clipboard.
         {
             name: copy_selection
-            modifier: control_shift
-            keycode: char_c
-            mode: emacs
+            modifier: none
+            keycode: char_y
+            mode: vi_normal
             event: { edit: copyselection }
             # event: { edit: copyselectionsystem }
         }
         {
             name: cut_selection
-            modifier: control_shift
+            modifier: none
             keycode: char_x
-            mode: emacs
+            mode: vi_normal
             event: { edit: cutselection }
             # event: { edit: cutselectionsystem }
         }
         # {
         #     name: paste_system
         #     modifier: control_shift
-        #     keycode: char_v
-        #     mode: emacs
+        #     keycode: char_p
+        #     mode: vi_normal
         #     event: { edit: pastesystem }
         # }
         {
@@ -894,6 +889,17 @@ $env.config = {
             keycode: char_a
             mode: emacs
             event: { edit: selectall }
+        }
+
+        {
+            name: add_space
+            modifier: none
+            keycode: space
+            mode: [vi_normal]
+            event: {
+                edit: insertstring
+                value: " "
+            }
         }
     ]
 }
