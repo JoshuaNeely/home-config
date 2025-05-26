@@ -1,6 +1,6 @@
 #--simulate # disable when ready to make changes
 
---verbose=2
+--verbose=1
 --dotfiles # translate dir "dot-xyz" to target ".xyz"
 
 --dir $HOME/home-config/stow
