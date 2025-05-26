@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+notify-send "Starting nixos package rebuild..."
+sudo nixos-rebuild switch
+if [[ $? == 0 ]]
+then
+   echo "SUCCESS"
+   notify-send "SUCCESS rebuilding nixos packages"
+else
+   notify-send "FAILED rebuilding nixos packages"
+fi
