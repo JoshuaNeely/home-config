@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=RebuildNixos
+Comment=wrapper around rebuild script
+Exec=hyprctl dispatch exec "kitty $HOME/.local/bin/rebuild-nixos"
+Terminal=true
+Type=Application
+Categories=Utility;
