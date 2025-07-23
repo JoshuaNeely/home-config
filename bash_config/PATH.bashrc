@@ -5,6 +5,7 @@ $PATH:\
 /home/$USER/.local/bin:\
 /home/$USER/local/bin:\
 /home/$USER/bin:\
+/home/$USER/.cargo/bin:\
 /home/$USER/.nvm/versions/node/v19.8.1/bin:\
 /usr/local/sbin:\
 /usr/local/bin:\

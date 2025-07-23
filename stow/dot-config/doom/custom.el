@@ -47,7 +47,7 @@
  '(vertico-buffer-display-action
    '(display-buffer-in-direction (direction . below) (window-height . 20)))
  '(warning-suppress-log-types '((org-element-cache) (defvaralias)))
- '(warning-suppress-types '((org-element-cache) (defvaralias))))
+ '(warning-suppress-types '((treesit) (org-element-cache) (defvaralias))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
