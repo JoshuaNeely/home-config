@@ -1,0 +1,93 @@
+{
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>"
+            ],
+            "commands": [
+                "vspacecode.space"
+            ]
+        },
+        {
+            "before": [
+                ","
+            ],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines",
+            ]
+        }
+    ],
+    "workbench.editor.showTabs": "multiple",
+    "window.commandCenter": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "editor.minimap.enabled": false,
+
+    // Ensure the redundant navigation 0, 1, 2, 3, 4... options don't hide the interesting ones.
+    "whichkey.sortOrder": "customNonNumberFirst",
+
+    // vspacecode.bindings seem to apply instead of, or on top of, whichkey bindings
+    // https://vspacecode.github.io/docs/menu-customization
+    "vspacecode.bindingOverrides": [
+        {
+            "keys": "b.s",
+            "name": "Save File",
+            "icon": "save",
+            "type": "command",
+            "command": "workbench.action.files.save"
+        },
+        {
+            "keys": "b.r",
+            "name": "Revert File",
+            "icon": "trash",
+            "type": "command",
+            "command": "workbench.action.files.revert"
+        }
+    ],
+    "breadcrumbs.enabled": false,
+}
