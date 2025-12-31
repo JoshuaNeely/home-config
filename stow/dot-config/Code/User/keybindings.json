@@ -163,8 +163,27 @@
         "key": "alt+x ctrl+g",
         "command": "-magit.dispatch"
     },
+	// Important for closing an editor that doesn't play nicely with the VSpaceCode system.
+	// For example Settings, Extensions, and other built in tabs.
     {
         "key": "alt+q",
         "command": "workbench.action.closeActiveEditor"
-    }
+    },
+    {
+        "key": "alt+f",
+        "command": "workbench.action.quickOpen",
+		"when": "editorTextFocus && !editorReadonly"
+    },
+
+    {
+        "key": "tab",
+        "command": "editor.toggleFold",
+		"when": "activeEditor && !whichkeyActive && inputFocus && !inFileBrowser && !suggestWidgetVisible && !inlineSuggestionVisible"
+    },
+	// Correct magit mode tab section-fold being broken by previous TAB keybinding.
+	{
+		"key": "tab",
+		"command": "magit.toggle-fold",
+		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+	},
 ]

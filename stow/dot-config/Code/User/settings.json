@@ -87,7 +87,29 @@
             "icon": "trash",
             "type": "command",
             "command": "workbench.action.files.revert"
-        }
+        },
+        {
+            "keys": " ",
+            "name": "Search for Filename",
+            "type": "command",
+            "command": "find-it-faster.findFiles"
+        },
     ],
     "breadcrumbs.enabled": false,
+
+    // Fixes cursor navigation opening folded sections. Why isn't this true by default??
+    "vim.foldfix": true,
+
+    // Prevent menus rapidly created and closed when using muscle memory flows. Eg "SPC b s".
+    "whichkey.delay": 100,
+
+    "files.exclude": {
+        "**/vendor": true,
+    },
+
+    "search.exclude": {
+        "**/vendor": true,
+    },
+
+    "find-it-faster.general.useTerminalInEditor": false,
 }
