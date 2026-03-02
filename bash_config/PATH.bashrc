@@ -1,5 +1,4 @@
 export PATH=\
-$PATH:\
 /home/$USER/.rbenv/shims:\
 /home/$USER/git/sandbox/rbenv/bin:\
 /home/$USER/.local/bin:\
@@ -16,7 +15,7 @@ $PATH:\
 /snap/bin:\
 /opt/fzf/bin:\
 /home/$USER/home-config/scripts:\
-/home/$USER/.config/emacs/bin/:$PATH
+/home/$USER/.config/emacs/bin/:
 
 #export PATH=/snap/bin:$PATH
 #export PATH=$HOME/bin:$PATH
