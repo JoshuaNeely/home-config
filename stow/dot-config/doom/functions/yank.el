@@ -36,3 +36,12 @@
     (link-str (format "[[/%s::%s][%s::%s]]" file-abs-path line-number file-name-only line-number))
   )
   (kill-new link-str)))
+
+(defun yank-abs-path-to-buffer()
+  (interactive)
+  (let* (
+    (file-abs-path (file-relative-name buffer-file-name "/"))
+  )
+  (message (format "yanking %s", file-abs-path))
+  (kill-new file-abs-path)))
+
