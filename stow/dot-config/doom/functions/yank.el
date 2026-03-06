@@ -1,7 +1,7 @@
 (defun yank-absolute-link-to-current-file()
   (interactive)
   (let* (
-    (file-abs-path (file-relative-name buffer-file-name "/"))
+    (file-abs-path buffer-file-name)
     (link-str (format "[[/%s][/%s]]" file-abs-path file-abs-path))
   )
   (kill-new link-str)))
@@ -10,7 +10,7 @@
   (interactive)
   (let* (
     (project-path (file-name-directory (directory-file-name (doom-project-root))))
-    (file-abs-path (file-relative-name buffer-file-name "/"))
+    (file-abs-path buffer-file-name)
     (file-project-path (file-relative-name buffer-file-name project-path))
     (link-str (format "[[/%s][%s]]" file-abs-path file-project-path))
   )
@@ -21,7 +21,7 @@
   (let* (
     (directory-name-only (file-name-directory buffer-file-name))
     (file-name-only (file-relative-name buffer-file-name directory-name-only))
-    (file-abs-path (file-relative-name buffer-file-name "/"))
+    (file-abs-path buffer-file-name)
     (link-str (format "[[/%s][%s]]" file-abs-path file-name-only))
   )
   (kill-new link-str)))
@@ -31,7 +31,7 @@
   (let* (
     (directory-name-only (file-name-directory buffer-file-name))
     (file-name-only (file-relative-name buffer-file-name directory-name-only))
-    (file-abs-path (file-relative-name buffer-file-name "/"))
+    (file-abs-path buffer-file-name)
     (line-number (line-number-at-pos))
     (link-str (format "[[/%s::%s][%s::%s]]" file-abs-path line-number file-name-only line-number))
   )
@@ -40,8 +40,7 @@
 (defun yank-abs-path-to-buffer()
   (interactive)
   (let* (
-    (file-abs-path (file-relative-name buffer-file-name "/"))
+    (file-abs-path buffer-file-name)
   )
-  (message (format "yanking %s", file-abs-path))
-  (kill-new file-abs-path)))
-
+    (message (format "yanking %s" file-abs-path))
+    (kill-new file-abs-path)))
