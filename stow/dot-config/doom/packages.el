@@ -50,8 +50,8 @@
 ;(unpin! t)
 
 
-(package! magit :pin "f52dfad")
-(package! transient :pin "b51a52a") ;; newer versions broke my magit-log workflow
+(package! magit)
+(package! transient)
 
 ;; (package! ox-jira)
 ;; (package! copy-as-format)
