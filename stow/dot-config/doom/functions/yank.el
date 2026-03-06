@@ -4,7 +4,8 @@
     (file-abs-path buffer-file-name)
     (link-str (format "[[/%s][/%s]]" file-abs-path file-abs-path))
   )
-  (kill-new link-str)))
+    (message (format "yanking %s" link-str))
+    (kill-new link-str)))
 
 (defun yank-project-link-to-current-file()
   (interactive)
@@ -14,7 +15,8 @@
     (file-project-path (file-relative-name buffer-file-name project-path))
     (link-str (format "[[/%s][%s]]" file-abs-path file-project-path))
   )
-  (kill-new link-str)))
+    (message (format "yanking %s" link-str))
+    (kill-new link-str)))
 
 (defun yank-link-to-current-file()
   (interactive)
@@ -24,7 +26,8 @@
     (file-abs-path buffer-file-name)
     (link-str (format "[[/%s][%s]]" file-abs-path file-name-only))
   )
-  (kill-new link-str)))
+    (message (format "yanking %s" link-str))
+    (kill-new link-str)))
 
 (defun yank-link-to-current-file-line()
   (interactive)
@@ -35,7 +38,8 @@
     (line-number (line-number-at-pos))
     (link-str (format "[[/%s::%s][%s::%s]]" file-abs-path line-number file-name-only line-number))
   )
-  (kill-new link-str)))
+    (message (format "yanking %s" link-str))
+    (kill-new link-str)))
 
 (defun yank-abs-path-to-buffer()
   (interactive)

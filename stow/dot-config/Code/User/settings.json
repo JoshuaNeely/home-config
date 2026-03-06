@@ -1,6 +1,80 @@
 {
     "vim.easymotion": true,
     "vim.useSystemClipboard": true,
+
+    "workbench.editor.showTabs": "multiple",
+    "window.commandCenter": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "workbench.activityBar.location": "hidden",
+
+    // Ensure the redundant navigation 0, 1, 2, 3, 4... options don't hide the interesting ones.
+    "whichkey.sortOrder": "customNonNumberFirst",
+
+    // vspacecode.bindings seem to apply instead of, or on top of, whichkey bindings
+    // https://vspacecode.github.io/docs/menu-customization
+    "vspacecode.bindingOverrides": [
+        {
+            "keys": "b.s",
+            "name": "Save File",
+            "icon": "save",
+            "type": "command",
+            "command": "workbench.action.files.save"
+        },
+        {
+            "keys": "b.r",
+            "name": "Revert File",
+            "icon": "trash",
+            "type": "command",
+            "command": "workbench.action.files.revert"
+        },
+        {
+            "keys": " ",
+            "name": "Search for Filename",
+            "type": "command",
+            "command": "find-it-faster.findFiles"
+        },
+        {
+            "keys": "\t",
+            "name": "Open Project",
+            "type": "command",
+            "command": "projectManager.listProjects"
+        },
+    ],
+
+    // Attempting to prevent selecting an existing file only opening the OTHER file instead of a new copy.
+    // Useful for opening same file in two windows or panes.
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreviewFromCodeNavigation": false,
+    "search.useReplacePreview": false,
+
+    // Fixes cursor navigation opening folded sections. Why isn't this true by default??
+    "vim.foldfix": true,
+
+    // Prevent menus rapidly created and closed when using muscle memory flows. Eg "SPC b s".
+    "whichkey.delay": 500,
+
+    "files.exclude": {
+        "**/vendor": true,
+    },
+
+    "search.exclude": {
+        "**/vendor": true,
+    },
+
+    "find-it-faster.general.useTerminalInEditor": false,
+    "projectManager.sortList": "Recent",
+    "projectManager.git.ignoredFolders": [
+        "node_modules",
+        "out",
+        "typings",
+        "test",
+        ".haxelib",
+        "vendor"
+    ],
+
+    // out of the box with vim + vspacecode
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -61,55 +135,16 @@
             ]
         }
     ],
-    "workbench.editor.showTabs": "multiple",
-    "window.commandCenter": false,
-    "workbench.editor.editorActionsLocation": "hidden",
-    "workbench.layoutControl.enabled": false,
-    "workbench.activityBar.location": "hidden",
+    "markdown.updateLinksOnFileMove.enabled": "always",
+    "foam.completion.linkFormat": "link",
+    "foam.files.notesExtensions": "org",
+    "foam.supportedLanguages": [
+        "org",
+        "markdown"
+    ],
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.startupEditor": "none",
     "editor.minimap.enabled": false,
 
-    // Ensure the redundant navigation 0, 1, 2, 3, 4... options don't hide the interesting ones.
-    "whichkey.sortOrder": "customNonNumberFirst",
-
-    // vspacecode.bindings seem to apply instead of, or on top of, whichkey bindings
-    // https://vspacecode.github.io/docs/menu-customization
-    "vspacecode.bindingOverrides": [
-        {
-            "keys": "b.s",
-            "name": "Save File",
-            "icon": "save",
-            "type": "command",
-            "command": "workbench.action.files.save"
-        },
-        {
-            "keys": "b.r",
-            "name": "Revert File",
-            "icon": "trash",
-            "type": "command",
-            "command": "workbench.action.files.revert"
-        },
-        {
-            "keys": " ",
-            "name": "Search for Filename",
-            "type": "command",
-            "command": "find-it-faster.findFiles"
-        },
-    ],
-    "breadcrumbs.enabled": false,
-
-    // Fixes cursor navigation opening folded sections. Why isn't this true by default??
-    "vim.foldfix": true,
-
-    // Prevent menus rapidly created and closed when using muscle memory flows. Eg "SPC b s".
-    "whichkey.delay": 100,
-
-    "files.exclude": {
-        "**/vendor": true,
-    },
-
-    "search.exclude": {
-        "**/vendor": true,
-    },
-
-    "find-it-faster.general.useTerminalInEditor": false,
+    "foamCentral.notesFolder": "/home/jneely/foam-notes",
 }

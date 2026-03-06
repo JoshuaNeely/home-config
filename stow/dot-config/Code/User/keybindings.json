@@ -133,11 +133,14 @@
 		"command": "acceptSelectedCodeAction",
 		"when": "codeActionMenuVisible"
 	},
-	{
-		"key": "backspace",
-		"command": "file-browser.stepOut",
-		"when": "inFileBrowser"
-	},
+
+	// this interfers with the ability to backspace normally... it needs to be smarter, like somehow know that there is no content
+	// not ideal, but arrow key left/right still works
+	// {
+	// 	"key": "backspace",
+	// 	"command": "file-browser.stepOut",
+	// 	"when": "inFileBrowser"
+	// },
 	{
 		"key": "tab",
 		"command": "file-browser.stepIn",
@@ -186,4 +189,33 @@
 		"command": "magit.toggle-fold",
 		"when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
 	},
+
+	// attempt to excape out from a terminal window
+	// Not ideal but SORTA works
+	{
+		"key": "shift+space",
+		"command": "vspacecode.space",
+		"when": "terminalFocus"
+	},
+	{
+		"key": "Escape",
+		"command": "workbench.action.focusFirstEditorGroup",
+		"when": "terminalFocus"
+	},
+
+	{
+		"key": "alt+enter",
+		"command": "editor.action.openLink",
+		"when": "editorTextFocus"
+	},
+	{
+		"key": "enter",
+		"command": "markdown.extension.checkTaskList",
+		"when": "editorTextFocus && vim.mode == 'Normal' && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+	}
+// {
+//   "key": "enter",
+//   "command": "markdown.extension.onEnterKey",
+//   "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadonly && !markdown.extension.editor.cursor.inFencedCodeBlock && !markdown.extension.editor.cursor.inMathEnv && !suggestWidgetVisible && vim.mode != 'CommandlineInProgress' && vim.mode != 'EasyMotionInputMode' && vim.mode != 'EasyMotionMode' && vim.mode != 'Normal' && vim.mode != 'Replace' && vim.mode != 'SearchInProgressMode' && vim.mode != 'SurroundInputMode' && vim.mode != 'Visual' && vim.mode != 'VisualBlock' && vim.mode != 'VisualLine' && editorLangId =~ /^markdown$|^rmd$|^quarto$/ || editorTextFocus && !editorHasMultipleSelections && !editorReadonly && !markdown.extension.editor.cursor.inFencedCodeBlock && !markdown.extension.editor.cursor.inMathEnv && config.editor.acceptSuggestionOnEnter == 'off' && vim.mode != 'CommandlineInProgress' && vim.mode != 'EasyMotionInputMode' && vim.mode != 'EasyMotionMode' && vim.mode != 'Normal' && vim.mode != 'Replace' && vim.mode != 'SearchInProgressMode' && vim.mode != 'SurroundInputMode' && vim.mode != 'Visual' && vim.mode != 'VisualBlock' && vim.mode != 'VisualLine' && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+// }
 ]
