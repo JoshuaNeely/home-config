@@ -1,0 +1,8 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "keybinds": {
+    "leader": "alt+x",
+    // for some reason only alt-return is working. do the others have some conflict?
+    "input_newline": "shift+return,ctrl+return,alt+return"
+  }
+}

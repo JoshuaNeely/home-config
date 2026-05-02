@@ -1,0 +1,74 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // default
+  "model": "lmstudio/qwen3.6-35b-a3b",
+  "small_model": "lmstudio/qwen3.6-35b-a3b",
+  
+  // see also the ~/.config/opencode/agents/ dir or project local equivalent
+  "agent": {
+    
+  },
+  "default_agent": "plan",
+  
+  // see also the ~/.config/opencode/commands/ dir or project local equivalent
+  "command": {
+    
+  },
+   
+  // https://opencode.ai/docs/keybinds
+  // see tui.json
+
+  "provider": {
+    "gitlab": {
+        "whitelist": []
+    },
+    "opencode": {
+        "whitelist": []
+    },
+
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://10.0.0.10:1234/v1"
+      },
+      "whitelist": ["qwen3.6-35b-a3b"],
+      "models": {
+        "qwen3.6-35b-a3b": {
+          "name": "qwen3.6-moe",
+          // check that this data is actually realistic
+          // anyway it doesn't seem to be used yet? there's an open issue about it
+          "cost": {
+            "input": 0.0000055,
+            "output": 0.0000275,
+            "cache_read": 5.5e-7,
+            "cache_write": 0.000006875
+          },
+          "limit": {
+            "context": 119000,
+            "output": 8192
+          }
+        }
+      }
+    }
+
+  },
+  // this block doesn't seem to be working with `opencode serve`.
+  "server": {
+      "hostname": "0.0.0.0",
+      "port": 4097
+  },
+
+  "share": "disabled",
+
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    }
+  },
+  "plugin": [
+    "@tarquinen/opencode-dcp@latest"
+  ]
+}
