@@ -4,6 +4,15 @@
 # exclude files by making a match for them that does nothing
 # enables ease in deploying new bashrc files without maintaining a separate index here
 
+# Files are discovered and executed in an arbitrary order (alphabetical)
+# That means PATH.bashrc runs AFTER some others.
+# Some modules, like npm, modify PATH and rely on it!
+# So I want to inherit the previous path. PATH=$PATH:x:y:z
+# BUT this can lead to recursion scenarios where PATH grows huge.
+# Not what we want.
+# So I clear path HERE so recursion can't get out of control, then use PATH=$PATH in PATH.bashrc.
+PATH=""
+
 CONFIG_DIRECTORY=~/home-config/bash_config
 for BASHRC_FILE in $CONFIG_DIRECTORY/*; do
     case $BASHRC_FILE in
@@ -12,7 +21,7 @@ for BASHRC_FILE in $CONFIG_DIRECTORY/*; do
 
         # skip these by default... enable if dependencies are met
         $CONFIG_DIRECTORY/ruby.bashrc )  ;;
-        $CONFIG_DIRECTORY/npm.bashrc )   ;;
+        #$CONFIG_DIRECTORY/npm.bashrc )   ;;
         # $CONFIG_DIRECTORY/is4s.bashrc )   ;;
 
         # source all matches that remain
@@ -21,3 +30,8 @@ for BASHRC_FILE in $CONFIG_DIRECTORY/*; do
         * ) echo "ERROR: Unmatched '$BASHRC_FILE'" ;;
     esac
 done
+
+source $NVM_DIR/nvm.sh
+
+# opencode
+export PATH=/home/jneely/.opencode/bin:$PATH

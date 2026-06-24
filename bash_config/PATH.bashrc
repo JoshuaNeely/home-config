@@ -1,4 +1,7 @@
+# PATH=$PATH:... is safe because I wipe PATH clean in the top level bashrc.
+# See the note there.
 export PATH=\
+$PATH:\
 /home/$USER/.rbenv/shims:\
 /home/$USER/git/sandbox/rbenv/bin:\
 /home/$USER/.local/bin:\
@@ -15,7 +18,9 @@ export PATH=\
 /snap/bin:\
 /opt/fzf/bin:\
 /home/$USER/home-config/scripts:\
-/home/$USER/.config/emacs/bin/:
+/home/$USER/.config/emacs/bin/:\
+/home/$USER/.opencode/bin/:
+
 
 #export PATH=/snap/bin:$PATH
 #export PATH=$HOME/bin:$PATH
