@@ -1,9 +1,16 @@
 {
   "$schema": "https://opencode.ai/config.json",
 
+  "permission": {
+    "external_directory": {
+      "/tmp/**": "allow"
+    } 
+  },
+
   // default
-  "model": "lmstudio/qwen3.6-35b-a3b",
-  "small_model": "lmstudio/qwen3.6-35b-a3b",
+  //"model": "lmstudio/qwen3.6-35b-a3b",
+  "model": "llama-swap/qwen3.6-code-think",
+  "small_model": "llama-swap/qwen2.5-0.5B",
   
   // see also the ~/.config/opencode/agents/ dir or project local equivalent
   "agent": {
@@ -27,13 +34,60 @@
         "whitelist": []
     },
 
+    "llama-swap": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama-swap (local)",
+      "options": {
+        "baseURL": "http://10.0.0.10:8888/v1"
+      },
+      //"whitelist": ["qwen3.6-35b-a3b"],
+      "models": {
+        "qwen2.5-0.5B": {
+          //"name": "qwen3.6-moe",
+          "limit": {
+            "context": 200000,
+            "output": 16000 
+          }
+        },
+        "qwen3.6-mtp-q3": {
+          //"name": "qwen3.6-moe",
+          "limit": {
+            "context": 600000,
+            "output": 32000 
+          }
+        },
+        "qwen3": {
+          //"name": "qwen3.6-moe",
+          "limit": {
+            "context": 9000,
+            "output": 8192
+          }
+        },
+        "qwen3.6-mtp-code-think": {
+          //"name": "qwen3.6-moe",
+          "limit": {
+            //"context": 119000,
+            "context": 200000,
+            //"output": 8192
+            "output": 16000
+          }
+        },
+        "qwen3.6-mtp-code-nothink": {
+          //"name": "qwen3.6-moe",
+          "limit": {
+            "context": 119000,
+            "output": 8192
+          }
+        }
+      }
+    },
     "lmstudio": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "LM Studio (local)",
       "options": {
         "baseURL": "http://10.0.0.10:1234/v1"
       },
-      "whitelist": ["qwen3.6-35b-a3b"],
+      "whitelist": [],
       "models": {
         "qwen3.6-35b-a3b": {
           "name": "qwen3.6-moe",
@@ -54,9 +108,12 @@
     }
 
   },
-  // this block doesn't seem to be working with `opencode serve`.
+  // the contents of this block seem to overwrite args passed to `opencode serve`
+  // eg `opencode serve --hostname=192.168.86.34` SHOULD have overwritten this, but did not.
+  // this config / feature seem somewhat unstable. Previously I could not get these values
+  // to affect it at all, and I had the opposite problem- ONLY the cli args worked.
   "server": {
-      "hostname": "0.0.0.0",
+      "hostname": "10.0.0.4",
       "port": 4097
   },
 
