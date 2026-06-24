@@ -1,0 +1,9 @@
+;; #!/usr/bin/env doomscript
+
+;; (defcli! emacs-mcp ()
+;;   (doom-modules-initialize)      ; initialize the module system
+;;   (doom-initialize t)            ; bootstrap Doom as if this were an interactive session
+;;   (doom-startup)                 ; load your modules and user config
+;;   (emacs-mcp-run-stdio))         ; run the MCP server
+
+;; (run! "emacs-mcp")

@@ -9,6 +9,10 @@
         (file+head "${slug}.org" "#+title: ${title}\n")
         :unnarrowed t)))
 
+;; add markdown extension to org-roam-file-extensions list
+(setq org-roam-file-extensions '("org" "md"))
+(setq org-roam-title-sources '((mdtitle title mdheadline headline) (mdalias alias)))
+
 
 ;; ;; setting up org-roam-ui
 ;; ;; https://github.com/org-roam/org-roam-ui

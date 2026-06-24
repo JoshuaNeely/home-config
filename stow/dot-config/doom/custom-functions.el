@@ -238,6 +238,12 @@
   (let ((inboxdir (format "/home/%s/org-files/is4s/task_inbox_work.org" user-login-name)))
         (find-file inboxdir)))
 
+(defun open-work-task-log ()
+  "Open my work task log. Idea is to build a record/portfolio of work done."
+  (interactive)
+  (let ((inboxdir (format "/home/%s/org-files/is4s/task_log_work.org" user-login-name)))
+        (find-file inboxdir)))
+
 
 
 (defun magit-graph ()

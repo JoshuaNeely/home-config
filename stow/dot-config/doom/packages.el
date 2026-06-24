@@ -53,6 +53,28 @@
 (package! magit)
 (package! transient)
 
+
+;; an LLM chat
+(package! gptel :recipe (:nonrecursive t))
+;; MCP Servers
+(package! mcp :pin "3a380185597f56290057f370ab65dde89a20a18f")
+;; an LLM code assitant
+(package! aider)
+
+
+;; markdown
+(package! mixed-pitch)
+;;(package! md-roam :recipe (:host github :repo "nobiot/md-roam")) ;; broke things... unsupported... forget it
+;;(unpin! org-roam)
+
+;; rag and document similarity queries
+(package! org-similarity
+  :recipe (:host github :repo "brunoarine/org-similarity"))
+
+
+
+;; (package! outshine) ;; didn't seem to work...
+
 ;; (package! ox-jira)
 ;; (package! copy-as-format)
 ;; (package! org-super-agenda)

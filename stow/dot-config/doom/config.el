@@ -43,6 +43,7 @@
 (load "~/.config/doom/config-gui.el")
 
 (load "~/.config/doom/config-roam.el")
+(load "~/.config/doom/markdown.el") ;; comes after org-roam
 
 (load "~/.config/doom/config-ibuffer.el")
 
@@ -74,6 +75,12 @@
 (load "~/.config/doom/config-persp.el")
 
 
+(load "~/.config/doom/llm.el")
+
+
+(load "~/.config/doom/similarity.el")
+
+
 
 ;; somehow this was getting un-set... links were being written in the expanded form
 (setq org-link-descriptive t)
@@ -81,5 +88,8 @@
 (display-time-mode)
 
 
+(after! gdscript-mode
+  :config
+  (setq gdscript-godot-executable "/home/jneely/.local/bin/godot"))
 
-
+(setq! lsp-rust-analyzer-server-command '("ra-multiplex"))

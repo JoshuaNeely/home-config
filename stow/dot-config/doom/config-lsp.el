@@ -4,7 +4,16 @@
 ;;  :hook
 ;;((python-mode . lsp)))
 
+
+;; enable ty python LSP via eglot
+;; https://docs.astral.sh/ty/editors/#pycharm
+
+
 (setq lsp-pyls-plugins-flake8-config (format "/home/%s/tox.ini" user-login-name))
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '(python-base-mode . ("ty" "server"))))
+(add-hook 'python-base-mode-hook 'eglot-ensure)
 
 (setq lsp-pylsp-plugins-flake8-enabled nil)
 (setq lsp-pylsp-plugins-pycodestyle-enabled nil)

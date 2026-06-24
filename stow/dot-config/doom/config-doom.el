@@ -45,7 +45,10 @@
      :action open-task-inbox)
     ("Open Work Task Inbox"
      :face (:inherit (doom-dashboard-menu-title bold))
-     :action open-work-task-inbox)))
+     :action open-work-task-inbox)
+    ("Open Work Task Log"
+     :face (:inherit (doom-dashboard-menu-title bold))
+     :action open-work-task-log)))
 
 
 (setq doom-modeline-buffer-file-name-style 'file-name)
@@ -53,3 +56,8 @@
 (setq doom-modeline-major-mode-color-icon nil)
 (setq doom-modeline-unicode-fallback t)
 (setq doom-modeline-buffer-encoding nil)
+
+
+(setq doom-session-autosave t)
+;; does this work?
+(setq doom-session-autoload t)
