@@ -7,3 +7,5 @@ vim.o.fileencoding = "utf-8"
 vim.g.editorconfig = true
 
 vim.g.root_spec = { "cwd" }
+
+vim.g.autoformat = true

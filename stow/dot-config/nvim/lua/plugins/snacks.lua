@@ -1,7 +1,13 @@
 return {
-  "snacks.nvim",
+  "folke/snacks.nvim",
   opts = {
     picker = {
+      sources = {
+        files = { hidden = true },
+        explorer = { hidden = true },
+        smart = { hidden = true },
+      },
+
       matcher = {
         fuzzy = true, -- Use fuzzy matching
         smartcase = true, -- Case-sensitive only if uppercase characters are typed

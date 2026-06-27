@@ -1,3 +1,5 @@
+local wk = require("which-key")
+
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
@@ -26,16 +28,23 @@ vim.keymap.set({ "" }, "<M-x>", function()
   Snacks.picker.commands()
 end, { desc = "a doom-emacs flavored method for opening the cmd palette" })
 
-vim.keymap.set("n", "<leader>ff", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+vim.keymap.set("n", "<leader>ff", ":Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>")
 
-vim.keymap.set("n", "<leader>fx", function()
+vim.keymap.set("n", "<leader>sd", function()
+  vim.cmd("Telescope live_grep")
+end, { desc = "search cwd" })
+
+local del_buffer = function()
   local confirm = vim.fn.confirm("Delete buffer and file?", "&Yes\n&No", 2)
 
   if confirm == 1 then
     os.remove(vim.fn.expand("%"))
     vim.api.nvim_buf_delete(0, { force = true })
   end
-end, { desc = "Delete current file" })
+end
+
+vim.keymap.set("n", "<leader>fD", del_buffer, { desc = "Delete current file" })
+vim.keymap.set("n", "<leader>fx", del_buffer, { desc = "Delete current file" })
 
 -- emulating some emacs buffer muscle memory
 vim.keymap.set("n", "<leader>bs", function()
@@ -103,3 +112,71 @@ vim.keymap.set("n", "<leader>fR", function()
     end
   end)
 end, { desc = "Rename or move current file" })
+
+vim.keymap.set("n", "<leader>fS", function()
+  local current_file = vim.fn.expand("%:p")
+  vim.ui.input({ prompt = "Save copy to: ", default = current_file, completion = "file" }, function(new_file)
+    if new_file and new_file ~= "" and new_file ~= current_file then
+      vim.cmd("w " .. vim.fn.fnameescape(new_file))
+      vim.cmd("e " .. vim.fn.fnameescape(new_file))
+      print("Successfully saved copy to " .. new_file)
+    else
+      print("Cancelled or same file — no change")
+    end
+  end)
+end, { desc = "Save copy of current file" })
+
+-- ####################### Zettelkasten #########################
+wk.add({
+  { "<leader>n", group = "notes" },
+})
+
+local zkopts = { noremap = true, silent = false }
+
+vim.keymap.del("n", "<leader>n") -- remove leader-n to deconflict with notes workflows
+
+-- two options for old org-roam muschle memory
+vim.keymap.set("n", "<leader>nrf", function()
+  vim.cmd("ZkNotes")
+end, { desc = "Search Notes" })
+vim.keymap.set("n", "<leader>nf", function()
+  vim.cmd("ZkNotes")
+end, { desc = "Search Notes" })
+
+vim.keymap.set("n", "<leader>nb", function()
+  vim.cmd("ZkBuffers")
+end, { desc = "Search Active Notes" })
+
+vim.keymap.set("n", "<leader>nrr", function()
+  vim.cmd("ZkBacklinks")
+end, { desc = "Show Buffer BackLinks" })
+
+vim.keymap.set("n", "<leader>nl", function()
+  vim.cmd("ZkLinks")
+end, { desc = "Show Buffer Links" })
+
+vim.keymap.set("n", "<leader>ni", function()
+  vim.cmd("ZkInsertLink")
+end, { desc = "Insert Link" })
+
+vim.keymap.set("n", "<leader>nn", function()
+  vim.ui.input({ prompt = "New Note Name: " }, function(input)
+    if not input or input == "" then
+      return
+    end
+    print(string.format('ZkNew { title = "%s" }', input))
+    vim.cmd(string.format('ZkNew { title = "%s" }', input))
+  end)
+end, { desc = "New Note" })
+
+-- Search for the notes matching a given query.
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>nq",
+  "<Cmd>ZkNotes { sort = { 'modified' }, match = { vim.fn.input('Search: ') } }<CR>",
+  zkopts
+)
+
+-- Preview a linked note.
+vim.keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", zkopts)
+-- ################################################################
