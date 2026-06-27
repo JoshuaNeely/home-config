@@ -9,7 +9,7 @@
 
   // default
   //"model": "lmstudio/qwen3.6-35b-a3b",
-  "model": "llama-swap/qwen3.6-code-think",
+  "model": "llama-swap/qwen3.6-mtp-code-think",
   "small_model": "llama-swap/qwen2.5-0.5B",
   
   // see also the ~/.config/opencode/agents/ dir or project local equivalent
@@ -33,9 +33,7 @@
     "opencode": {
         "whitelist": []
     },
-
-    "llama-swap": {
-      "npm": "@ai-sdk/openai-compatible",
+    "llama-swap": {"npm": "@ai-sdk/openai-compatible",
       "name": "llama-swap (local)",
       "options": {
         "baseURL": "http://10.0.0.10:8888/v1"
