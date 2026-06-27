@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Kitty
+Comment=GPU-accelerated terminal emulator
+Exec=/home/jneely/.local/bin/kitty
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;
