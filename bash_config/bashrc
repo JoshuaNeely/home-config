@@ -35,3 +35,8 @@ source $NVM_DIR/nvm.sh
 
 # opencode
 export PATH=/home/jneely/.opencode/bin:$PATH
+. "$HOME/.cargo/env"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

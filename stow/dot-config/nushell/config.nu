@@ -903,3 +903,4 @@ $env.config = {
         }
     ]
 }
+source "~/.cargo/env.nu"

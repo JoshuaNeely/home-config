@@ -1,5 +1,5 @@
 # ~~~~~~ vim style movement in bash
-set -o vi
+#set -o vi
 
 
 export ALTERNATE_EDITOR=""
