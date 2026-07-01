@@ -20,7 +20,7 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 vim.keymap.set("t", "<C-Esc>", "<Esc>", { desc = "Send Escape to terminal" })
 
 vim.keymap.set("t", "<C-h>", [[<C-\><C-N><C-w>h]], { desc = "Navigate nvim panes from terminal" })
-vim.keymap.set("t", "<C-l>", [[C-\><C-N><C-w>l]], { desc = "Navigate nvim panes from terminal" })
+vim.keymap.set("t", "<C-l>", [[<C-\><C-N><C-w>l]], { desc = "Navigate nvim panes from terminal" })
 vim.keymap.set("t", "<C-j>", [[<C-\><C-N><C-w>j]], { desc = "Navigate nvim panes from terminal" })
 vim.keymap.set("t", "<C-k>", [[<C-\><C-N><C-w>k]], { desc = "Navigate nvim panes from terminal" })
 
@@ -135,7 +135,7 @@ local zkopts = { noremap = true, silent = false }
 
 vim.keymap.del("n", "<leader>n") -- remove leader-n to deconflict with notes workflows
 
--- two options for old org-roam muschle memory
+-- two options for old org-roam muscle memory
 vim.keymap.set("n", "<leader>nrf", function()
   vim.cmd("ZkNotes")
 end, { desc = "Search Notes" })
