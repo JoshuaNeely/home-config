@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias weave='~/.local/bin/weave-wrapper'
 alias openchamber='~/.local/bin/openchamber-wrapper'
 alias ls='ls --almost-all --color=auto'
 alias grep='grep --color=auto'
@@ -18,5 +19,5 @@ alias open="xdg-open"
 alias ssh="ssh -C -X"
 
 rbi() {
-    echo "you probably meant 'irb'"
+  echo "you probably meant 'irb'"
 }

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# this should be set elsewhere, for zk to work at all
+# ZK_NOTEBOOK_DIR	Path to the zk notebook directory	(required)
+
+read -s -p "Weave UI password: " password
+
+export WEAVE_PASSWORD=$password
+export WEAVE_PORT=8888
+export WEAVE_HOST=0.0.0.0
+export WEAVE_ATTACHMENTS=media
+
+export WEAVE_ZK_BACKEND="external"
+
+weave
