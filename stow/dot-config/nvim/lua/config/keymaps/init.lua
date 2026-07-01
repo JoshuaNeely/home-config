@@ -159,15 +159,29 @@ vim.keymap.set("n", "<leader>ni", function()
   vim.cmd("ZkInsertLink")
 end, { desc = "Insert Link" })
 
+local function slugify(s)
+  s = s:lower()
+  s = s:gsub("%W", "_") -- non-word chars → underscores
+  s = s:gsub("_+", "_") -- collapse consecutive underscores
+  s = s:gsub("^_+", "") -- trim leading underscores
+  s = s:gsub("_+$", "") -- trim trailing underscores
+  return s
+end
+
 vim.keymap.set("n", "<leader>nn", function()
   vim.ui.input({ prompt = "New Note Name: " }, function(input)
     if not input or input == "" then
       return
     end
-    print(string.format('ZkNew { title = "%s" }', input))
-    vim.cmd(string.format('ZkNew { title = "%s" }', input))
+    vim.cmd(string.format('ZkNew { title = "%s", id = "%s" }', input, slugify(input)))
+    -- first use: slugified ("my_new_note")
+    -- second use: keep original if you pass it separately
   end)
 end, { desc = "New Note" })
+
+vim.keymap.set("n", "<leader>nj", function()
+  vim.cmd("ZkDaily")
+end, { desc = "Create/Open Daily Journal Note" })
 
 -- Search for the notes matching a given query.
 vim.api.nvim_set_keymap(
