@@ -12,7 +12,7 @@ return {
         custom = {
           wiki_clean = {
             --pattern = "^([^%-]+)(%-[%w][%w][%w][%w])$",
-            pattern = "%-[%w][%w][%w][%w]",
+            pattern = "%[-_][%w][%w][%w][%w]",
             icon = "", -- Use '  ' or '  ' (a closed book) here
           },
           -- pattern = "(%[%[[^%]]+%]%])",
