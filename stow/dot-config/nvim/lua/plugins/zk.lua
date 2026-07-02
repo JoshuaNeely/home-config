@@ -67,11 +67,17 @@ return {
              local line = vim.api.nvim_get_current_line()
 
              -- If cursor is on a checkbox line, toggle it
-             if line:match('%[%s%]') or line:match('%[x%]') then
-               return '<cmd>lua _G.toggle_checkboxes_at_cursor()<CR>'
-             end
+              if line:match('%[%s%]') or line:match('%[x%]') then
+                return '<cmd>lua _G.toggle_checkboxes_at_cursor()<CR>'
+              end
 
-             -- Fetch the active zk LSP client attached to this buffer
+              -- If cursor is on a web URL, open it in the browser
+              local cfile = vim.fn.expand('<cfile>')
+              if cfile:match('^https?://') then
+                return string.format('<cmd>silent !xdg-open %s<CR>', vim.fn.shellescape(cfile))
+              end
+
+              -- Fetch the active zk LSP client attached to this buffer
              local clients = vim.lsp.get_clients({ name = "zk", bufnr = 0 })
              if vim.tbl_isempty(clients) then
                return vim.api.nvim_replace_termcodes("<CR>", true, false, true)
