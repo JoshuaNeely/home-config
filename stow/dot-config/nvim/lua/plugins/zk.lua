@@ -76,6 +76,30 @@ return {
       zk.new(options)
     end)
 
+    local function slugify(s)
+      s = s:lower()
+      s = s:gsub("%W", "_")
+      s = s:gsub("_+", "_")
+      s = s:gsub("^_+", "")
+      s = s:gsub("_+$", "")
+      return s
+    end
+
+    commands.add("ZkIS4S", function(options)
+      vim.ui.input({ prompt = "New IS4S Note Name: " }, function(input)
+        if not input or input == "" then
+          return
+        end
+        local opts = vim.tbl_extend("force", {
+          dir = "is4s",
+          template = "is4s.md",
+          title = input,
+          id = slugify(input),
+        }, options or {})
+        zk.new(opts)
+      end)
+    end)
+
     commands.add("ZkMention", function(options)
       options = vim.tbl_extend("force", {
         match = { "term" },

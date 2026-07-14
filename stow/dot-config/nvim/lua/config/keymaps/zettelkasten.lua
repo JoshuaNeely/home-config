@@ -56,6 +56,10 @@ vim.keymap.set("n", "<leader>nj", function()
   vim.cmd("ZkDaily")
 end, { desc = "Create/Open Daily Journal Note" })
 
+vim.keymap.set("n", "<leader>nw", function()
+  vim.cmd("ZkIS4S")
+end, { desc = "Create IS4S Work Note" })
+
 -- Search for the notes matching a given query.
 vim.api.nvim_set_keymap(
   "n",
