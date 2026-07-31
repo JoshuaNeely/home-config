@@ -30,7 +30,11 @@ vim.keymap.set({ "" }, "<M-x>", function()
   Snacks.picker.commands()
 end, { desc = "a doom-emacs flavored method for opening the cmd palette" })
 
-vim.keymap.set("n", "<leader>ff", ":Telescope file_browser path=%:p:h select_buffer=true hidden=true<CR>")
+vim.keymap.set(
+  "n",
+  "<leader>ff",
+  ":Telescope file_browser path=%:p:h select_buffer=true hidden=true follow_symlinks=true<CR>"
+)
 
 vim.keymap.set("n", "<leader>sd", function()
   vim.cmd("Telescope live_grep")
